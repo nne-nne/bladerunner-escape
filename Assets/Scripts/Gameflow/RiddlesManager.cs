@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RiddlesManager : MonoBehaviour
 {
-    [SerializeField] private List<IRiddle> riddlesToSolve;
+    [SerializeField] private List<GameObject> riddlesToSolve;
     public IRiddle CurrentRiddle { get; private set; }
 
     private bool CheckWinCondition()
@@ -14,7 +14,7 @@ public class RiddlesManager : MonoBehaviour
 
     private void NextRiddle(IRiddle newRiddle)
     {
-        riddlesToSolve.Remove(CurrentRiddle);
+        riddlesToSolve.RemoveAt(0);
         CurrentRiddle = newRiddle;
     }
 
