@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Elevator1 : MonoBehaviour
+public class RiddleTutorial1 : MonoBehaviour, IRiddle
 {
     [SerializeField] private Material elevator1;
     [SerializeField] private float targetKnobValue;
@@ -25,12 +25,37 @@ public class Elevator1 : MonoBehaviour
     {
         if(Mathf.Abs(currentKnobValue - targetKnobValue) <= tolerance )
         {
-            Debug.Log("Elevator1: Passed");
+            Debug.Log("Riddle Tutorial 1: Passed");
             return true;
         }
         else
         {
             return false;
         }
+    }
+
+    public void Prepare()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnPassed()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public bool IsPassed()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public List<Material> GetMaterialPatterns()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public PatternCamera GetPatternCamera()
+    {
+        throw new System.NotImplementedException();
     }
 }
