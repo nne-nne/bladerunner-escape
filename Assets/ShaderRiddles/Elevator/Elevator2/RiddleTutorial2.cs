@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Elevator2 : MonoBehaviour
+public class RiddleTutorial2 : MonoBehaviour, IRiddle
 {
     [SerializeField] private Material elevator2;
     [SerializeField] private List<Texture2D> patternTextures;
@@ -35,12 +35,37 @@ public class Elevator2 : MonoBehaviour
     {
         if (currentTextureIndex == targetTextureIndex)
         {
-            Debug.Log("Elevator2: Passed");
+            Debug.Log("Riddle Tutorial 2: Passed");
             return true;
         }
         else
         {
             return false;
         }
+    }
+
+    public void Prepare()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnPassed()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public bool IsPassed()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public List<Material> GetMaterialPatterns()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public PatternCamera GetPatternCamera()
+    {
+        throw new System.NotImplementedException();
     }
 }
