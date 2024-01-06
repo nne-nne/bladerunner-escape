@@ -75,7 +75,7 @@ Material:
     - _DstBlend: 0
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
-    - _KnobValue: 0.89285713
+    - _KnobValue: 0.9054497
     - _Metallic: 1
     - _OpaqueCullMode: 2
     - _RayTracing: 0
@@ -85,7 +85,7 @@ Material:
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
     - _Saturation: 1
-    - _Smoothness: 0.35
+    - _Smoothness: 46.68
     - _SrcBlend: 1
     - _StencilRef: 0
     - _StencilRefDepth: 8
