@@ -4,28 +4,38 @@ using UnityEngine;
 
 public class RiddleTutorial1 : MonoBehaviour, IRiddle
 {
-    [SerializeField] private Material elevator1;
+    [SerializeField] private Material elevator1Material;
     [SerializeField] private float targetKnobValue;
     [SerializeField] private float tolerance = 0.01f;
+    [SerializeField] private PatternCamera patternCamera;
+    [SerializeField] private List<Material> materialPatterns;
+    [SerializeField] private Knob knob;
+    [SerializeField] private ScifiDoor exit;
     private float currentKnobValue;
 
-    private void Awake()
+    private void OnKnobValueChanged(Knob k, float value)
     {
-        currentKnobValue = elevator1.GetFloat("_KnobValue");
+        if(k == knob)
+        {
+            SetKnobValue(knob.Value);
+            if (CheckWinCondition())
+            {
+                OnPassed();
+            }
+        }
     }
 
-    public void SetKnobValue(float v)
+    private void SetKnobValue(float v)
     {
         currentKnobValue = v;
-        elevator1.SetFloat("_KnobValue", currentKnobValue);
+        elevator1Material.SetFloat("_KnobValue", currentKnobValue);
         CheckWinCondition();
     }
 
     private bool CheckWinCondition()
     {
-        if(Mathf.Abs(currentKnobValue - targetKnobValue) <= tolerance )
+        if(Mathf.Abs(currentKnobValue - targetKnobValue) <= tolerance)
         {
-            Debug.Log("Riddle Tutorial 1: Passed");
             return true;
         }
         else
@@ -36,26 +46,41 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
 
     public void Prepare()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Riddle Tutorial 1 prepared");
     }
 
     public void OnPassed()
     {
-        throw new System.NotImplementedException();
+        exit.Open();
     }
 
     public bool IsPassed()
     {
-        throw new System.NotImplementedException();
+        return CheckWinCondition();
     }
 
     public List<Material> GetMaterialPatterns()
     {
-        throw new System.NotImplementedException();
+        return materialPatterns;
     }
 
     public PatternCamera GetPatternCamera()
     {
-        throw new System.NotImplementedException();
+        return patternCamera;
+    }
+
+    private void Awake()
+    {
+        Prepare();
+    }
+
+    private void OnEnable()
+    {
+        EventBroadcaster.OnKnobValueChanged += OnKnobValueChanged;
+    }
+
+    private void OnDisable()
+    {
+        EventBroadcaster.OnKnobValueChanged -= OnKnobValueChanged;
     }
 }

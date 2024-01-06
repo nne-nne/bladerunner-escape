@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class Knob : MonoBehaviour, ITakeable
 {
-    [SerializeField] private float value;
-    [SerializeField] private float tolerance;
+    [SerializeField] public float Value { get; private set; }
     [SerializeField] private GameObject activationMarker;
 
     public void Drop()
     {
-        Debug.Log("knob dropped");
         activationMarker.SetActive(false);
     }
 
     public void Take()
     {
-        Debug.Log("knob taken");
         activationMarker.SetActive(true);
     }
 
@@ -27,8 +24,12 @@ public class Knob : MonoBehaviour, ITakeable
 
     private void Rotate(float value)
     {
-        this.value = (this.value + value) % 360f;
-        VisualizeKnobValueChanged(this.value);
+        Value = (Value + value) % 1f;
+        if(Value < 0)
+        {
+            Value += 1;
+        }
+        VisualizeKnobValueChanged(Value * 360);
     }
 
     private void OnKnobValueChanged(Knob knob, float value)
@@ -47,7 +48,7 @@ public class Knob : MonoBehaviour, ITakeable
     private void Start()
     {
         activationMarker.SetActive(false);
-        VisualizeKnobValueChanged(value);
+        VisualizeKnobValueChanged(Value);
     }
 
     private void OnEnable()
