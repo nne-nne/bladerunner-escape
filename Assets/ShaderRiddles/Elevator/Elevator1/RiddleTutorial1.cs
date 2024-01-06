@@ -74,6 +74,14 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
         Prepare();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            OnPassed();
+        }
+    }
+
     private void OnEnable()
     {
         EventBroadcaster.OnKnobValueChanged += OnKnobValueChanged;
