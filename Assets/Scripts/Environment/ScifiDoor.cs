@@ -22,10 +22,10 @@ public class ScifiDoor : MonoBehaviour, IOpenable
             t += Time.deltaTime;
             float upperHeight = Mathf.Lerp(upperBounds.x, upperBounds.y, t / openingTime);
             float lowerHeight = Mathf.Lerp(lowerBounds.x, lowerBounds.y, t / openingTime);
-            upper1.transform.position = new Vector3(upper1.transform.position.x, upperHeight, upper1.transform.position.z);
-            upper2.transform.position = new Vector3(upper2.transform.position.x, upperHeight, upper2.transform.position.z);
-            lower1.transform.position = new Vector3(lower1.transform.position.x, lowerHeight, lower1.transform.position.z);
-            lower2.transform.position = new Vector3(lower2.transform.position.x, lowerHeight, lower2.transform.position.z);
+            upper1.transform.localPosition = new Vector3(upper1.transform.localPosition.x, upperHeight, upper1.transform.localPosition.z);
+            upper2.transform.localPosition = new Vector3(upper2.transform.localPosition.x, upperHeight, upper2.transform.localPosition.z);
+            lower1.transform.localPosition = new Vector3(lower1.transform.localPosition.x, lowerHeight, lower1.transform.localPosition.z);
+            lower2.transform.localPosition = new Vector3(lower2.transform.localPosition.x, lowerHeight, lower2.transform.localPosition.z);
             yield return null;
         }
         upper1.SetActive(false);
@@ -50,10 +50,10 @@ public class ScifiDoor : MonoBehaviour, IOpenable
             t += Time.deltaTime;
             float upperHeight = Mathf.Lerp(upperBounds.y, upperBounds.x, t / openingTime);
             float lowerHeight = Mathf.Lerp(lowerBounds.y, lowerBounds.x, t / openingTime);
-            upper1.transform.position = new Vector3(upper1.transform.position.x, upperHeight, upper1.transform.position.z);
-            upper2.transform.position = new Vector3(upper2.transform.position.x, upperHeight, upper2.transform.position.z);
-            lower1.transform.position = new Vector3(lower1.transform.position.x, lowerHeight, lower1.transform.position.z);
-            lower2.transform.position = new Vector3(lower2.transform.position.x, lowerHeight, lower2.transform.position.z);
+            upper1.transform.localPosition = new Vector3(upper1.transform.localPosition.x, upperHeight, upper1.transform.localPosition.z);
+            upper2.transform.localPosition = new Vector3(upper2.transform.localPosition.x, upperHeight, upper2.transform.localPosition.z);
+            lower1.transform.localPosition = new Vector3(lower1.transform.localPosition.x, lowerHeight, lower1.transform.localPosition.z);
+            lower2.transform.localPosition = new Vector3(lower2.transform.localPosition.x, lowerHeight, lower2.transform.localPosition.z);
             yield return null;
         }
         animating = false;
@@ -62,7 +62,7 @@ public class ScifiDoor : MonoBehaviour, IOpenable
     {
         if(!animating)
         {
-            StartCoroutine(OpenCoroutine());
+            StartCoroutine(CloseCoroutine());
         }
     }
 
@@ -70,7 +70,7 @@ public class ScifiDoor : MonoBehaviour, IOpenable
     {
         if (!animating)
         {
-            StartCoroutine(CloseCoroutine());
+            StartCoroutine(OpenCoroutine());
         }
     }
 }

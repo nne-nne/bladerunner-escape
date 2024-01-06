@@ -29,7 +29,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _PatternTexture:
-        m_Texture: {fileID: 2800000, guid: aa48ca48c18351a48bd7802b57497afc, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0f1c9a12872a30f45bab34f536332bb3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -65,7 +65,7 @@ Material:
     - _EnableFogOnTransparent: 1
     - _Metallic: 0.5
     - _OpaqueCullMode: 2
-    - _Overlay: 1
+    - _Overlay: 0
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
