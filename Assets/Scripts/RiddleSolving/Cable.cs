@@ -10,8 +10,8 @@ public class Cable : MonoBehaviour
     [SerializeField] private Vector3 offset;
     [SerializeField] private GameObject origin;
     [SerializeField] private LineRenderer lr;
+    [SerializeField] private List<GameObject> spawnedObjects;
 
-    private List<GameObject> spawnedObjects = new();
     private Rigidbody cachedBody;
     private Vector3[] positions;
 
