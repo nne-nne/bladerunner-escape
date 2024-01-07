@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/OutdoorsScene.unity
     guid: 8124e5870f4fd4c779e7a5f994e84ad1
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: aea919343e99ced49acf0501f438bc81,
+      type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 4144540be5b201542beeb06c4397dd60,
+      type: 2}
+    xr.sdk.mock-hmd.settings: {fileID: 11400000, guid: 6a9c77020a8d486409feeec2fcf20a36,
+      type: 2}
