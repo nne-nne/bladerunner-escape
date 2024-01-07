@@ -52,6 +52,7 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
     public void OnPassed()
     {
         exit.Open();
+        EventBroadcaster.RiddleFinished();
     }
 
     public bool IsPassed()
@@ -72,14 +73,6 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
     private void Awake()
     {
         Prepare();
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
-            OnPassed();
-        }
     }
 
     private void OnEnable()

@@ -7,7 +7,15 @@ public class RiddleTutorial2 : MonoBehaviour, IRiddle
     [SerializeField] private Material elevator2;
     [SerializeField] private List<Texture2D> patternTextures;
     [SerializeField] private int targetTextureIndex;
+    [SerializeField] private Elevator elevator;
+    [SerializeField] private PatternCamera patternCamera;
+    [SerializeField] private List<Material> materialPatterns;
+    [SerializeField] private Plug p1;
+    [SerializeField] private Plug p2;
+    [SerializeField] private Plug destination;
+
     private int currentTextureIndex;
+    
     private void Awake()
     {
         currentTextureIndex = 0;
@@ -46,26 +54,47 @@ public class RiddleTutorial2 : MonoBehaviour, IRiddle
 
     public void Prepare()
     {
-        throw new System.NotImplementedException();
+        
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            EventBroadcaster.ConnectionMade(p1, destination);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            EventBroadcaster.ConnectionMade(p2, destination);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            EventBroadcaster.PlugDisconnected(p1);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            EventBroadcaster.PlugDisconnected(p2);
+        }
     }
 
     public void OnPassed()
     {
-        throw new System.NotImplementedException();
+        elevator.StartAnimation();
+        EventBroadcaster.RiddleFinished();
     }
 
     public bool IsPassed()
     {
-        throw new System.NotImplementedException();
+        return CheckWinCondition();
     }
 
     public List<Material> GetMaterialPatterns()
     {
-        throw new System.NotImplementedException();
+        return materialPatterns;
     }
 
     public PatternCamera GetPatternCamera()
     {
-        throw new System.NotImplementedException();
+        return patternCamera;
     }
 }

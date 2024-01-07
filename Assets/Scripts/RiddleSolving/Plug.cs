@@ -5,6 +5,7 @@ using UnityEngine;
 public class Plug : MonoBehaviour, ITakeable
 {
     private Rigidbody rb;
+    public Plug connectedPlug;
 
     private void Awake()
     {
@@ -19,6 +20,40 @@ public class Plug : MonoBehaviour, ITakeable
     public void Take()
     {
         rb.isKinematic = false;
+    }
+
+    private void OnConnectionMade(Plug from, Plug to)
+    {
+        if (from == this && to.connectedPlug == null)
+        {
+            transform.position = to.transform.position;
+            transform.rotation = to.transform.rotation;
+            rb.isKinematic = true;
+            connectedPlug = to;
+            to.connectedPlug = from;
+        }
+    }
+
+    private void OnPlugDisconnected(Plug p)
+    {
+        if(p == this)
+        {
+            rb.isKinematic = false;
+            connectedPlug.connectedPlug = null;
+            connectedPlug = null;
+        }
+    }
+
+    private void OnEnable()
+    {
+        EventBroadcaster.OnConnectionMade += OnConnectionMade;
+        EventBroadcaster.OnPlugDisconnected += OnPlugDisconnected;
+    }
+
+    private void OnDisable()
+    {
+        EventBroadcaster.OnConnectionMade -= OnConnectionMade;
+        EventBroadcaster.OnPlugDisconnected -= OnPlugDisconnected;
     }
 
     public void Use()

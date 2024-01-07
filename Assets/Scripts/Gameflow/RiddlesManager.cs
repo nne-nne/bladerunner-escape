@@ -12,18 +12,39 @@ public class RiddlesManager : MonoBehaviour
         return CurrentRiddle.IsPassed();
     }
 
-    private void NextRiddle(IRiddle newRiddle)
+    private void NextRiddle()
     {
         riddlesToSolve.RemoveAt(0);
-        CurrentRiddle = newRiddle;
+        if(riddlesToSolve.Count > 0)
+        {
+            CurrentRiddle = riddlesToSolve[0].GetComponent<IRiddle>();
+        }
+        else
+        {
+            EventBroadcaster.GameFinished();
+        }
     }
 
     private void OnEnable()
     {
-        EventBroadcaster.OnChangedRiddle += NextRiddle;
+        EventBroadcaster.OnRiddleFinished += NextRiddle;
     }
     private void OnDisable()
     {
-        EventBroadcaster.OnChangedRiddle -= NextRiddle;
+        EventBroadcaster.OnRiddleFinished -= NextRiddle;
+    }
+
+    private void Awake()
+    {
+        CurrentRiddle = riddlesToSolve[0].GetComponent<IRiddle>();
+    }
+
+    private void Update()
+    {
+        // cheat
+        if (Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            CurrentRiddle.OnPassed();
+        }
     }
 }
