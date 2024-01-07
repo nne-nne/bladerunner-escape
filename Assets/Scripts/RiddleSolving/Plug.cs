@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class Plug : MonoBehaviour, ITakeable
 {
+    private Rigidbody rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
+
     public void Drop()
     {
-        throw new System.NotImplementedException();
+        rb.isKinematic = true;
     }
 
     public void Take()
     {
-        throw new System.NotImplementedException();
+        rb.isKinematic = false;
     }
 
     public void Use()
     {
-        throw new System.NotImplementedException();
+        Debug.Log("Plug is used via manipulator");
     }
 }
