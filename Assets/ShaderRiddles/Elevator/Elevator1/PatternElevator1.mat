@@ -23,7 +23,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Elevator1
+  m_Name: PatternElevator1
   m_Shader: {fileID: -6465566751694194690, guid: ccbfba1d1a139bf43b03367f677d64da,
     type: 3}
   m_ValidKeywords:
@@ -75,7 +75,7 @@ Material:
     - _DstBlend: 0
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
-    - _KnobValue: 0.88
+    - _KnobValue: 0
     - _Metallic: 1
     - _OpaqueCullMode: 2
     - _RayTracing: 0
