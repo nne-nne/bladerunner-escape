@@ -30,7 +30,7 @@ public class RiddleTutorial2 : MonoBehaviour, IRiddle
         if(index >= 0)
         {
             elevator2.SetTexture("_PatternTexture", patternTextures[index]);
-            elevator2.SetFloat("_Overlay", 1f);
+            elevator2.SetFloat("_Overlay", 30f);
         }
         else
         {
