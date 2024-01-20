@@ -9,22 +9,21 @@ public class Elevator : MonoBehaviour
     [SerializeField] private float launchTime;
     [SerializeField] private float rideTime;
     [SerializeField] private Vector3 targetPosition;
+    [SerializeField] private Transform player;
+
     private bool isAnimating = false;
 
 
     private IEnumerator AnimationCoroutine()
     {
         isAnimating = true;
-        float t = 0.0f;
         doorLower.Close();
         yield return new WaitForSeconds(launchTime);
-        Vector3 originalPosition = transform.position;
-        while( t < rideTime)
-        {
-            transform.position = Vector3.Lerp(originalPosition, targetPosition, t / rideTime);
-            t += Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(rideTime);
+        Transform playerParent = player.parent;
+        player.SetParent(this.transform);
+        transform.position = targetPosition;
+        player.SetParent(playerParent);
         doorUpper.Open();
     }
 
@@ -35,7 +34,7 @@ public class Elevator : MonoBehaviour
         StartCoroutine(AnimationCoroutine());
     }
 
-    void Start()
+    void Awake()
     {
         
     }
