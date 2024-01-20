@@ -44,7 +44,7 @@ public class RiddlesManager : MonoBehaviour
         // cheat
         if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            CurrentRiddle.OnPassed();
+            CurrentRiddle.Solve();
         }
     }
 }

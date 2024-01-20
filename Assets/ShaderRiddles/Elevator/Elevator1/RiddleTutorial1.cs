@@ -18,8 +18,10 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
         if(k == knob)
         {
             SetKnobValue(knob.Value);
+            Debug.Log("no mam");
             if (CheckWinCondition())
             {
+                Debug.Log("to tez");
                 OnPassed();
             }
         }
@@ -29,7 +31,6 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
     {
         currentKnobValue = v;
         elevator1Material.SetFloat("_KnobValue", currentKnobValue);
-        CheckWinCondition();
     }
 
     private bool CheckWinCondition()
@@ -46,6 +47,7 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
 
     public void Prepare()
     {
+        currentKnobValue = 0.0f;
         Debug.Log("Riddle Tutorial 1 prepared");
     }
 
@@ -59,6 +61,13 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
     {
         return CheckWinCondition();
     }
+    public void Solve()
+    {
+        float val = (targetKnobValue-currentKnobValue) % 1f;
+        if (val < 0f) val += 1f;
+        EventBroadcaster.KnobValueChanged(knob, val);
+    }
+
 
     public List<Material> GetMaterialPatterns()
     {

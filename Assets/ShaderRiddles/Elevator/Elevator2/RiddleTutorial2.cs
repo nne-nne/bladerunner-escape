@@ -36,7 +36,10 @@ public class RiddleTutorial2 : MonoBehaviour, IRiddle
         {
             elevator2.SetFloat("_Overlay", 0f);
         }
-        CheckWinCondition();
+        if(CheckWinCondition())
+        {
+            OnPassed();
+        }
     }
 
     private bool CheckWinCondition()
@@ -97,4 +100,35 @@ public class RiddleTutorial2 : MonoBehaviour, IRiddle
     {
         return patternCamera;
     }
+
+    private void OnConnectionMade(Plug source, Plug destination)
+    {
+        if(destination == this.destination)
+        {
+            if(source == p1)
+            {
+                SetPatternTexture(1);
+            }
+            else if(source == p2)
+            {
+                SetPatternTexture(2);
+            }
+        }
+    }
+
+    private void OnEnable()
+    {
+        EventBroadcaster.OnConnectionMade += OnConnectionMade;
+    }
+
+    private void OnDisable()
+    {
+        EventBroadcaster.OnConnectionMade -= OnConnectionMade;
+    }
+
+    public void Solve()
+    {
+        EventBroadcaster.ConnectionMade(p1, destination);
+    }
+
 }
