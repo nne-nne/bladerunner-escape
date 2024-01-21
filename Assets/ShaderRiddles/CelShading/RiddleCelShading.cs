@@ -4,6 +4,15 @@ using UnityEngine;
 
 public class RiddleCelShading : MonoBehaviour, IRiddle
 {
+    [SerializeField] private Plug mainLight_source;
+    [SerializeField] private Plug time_source;
+    [SerializeField] private Plug dotProduct_dest;
+    [SerializeField] private Plug crossProduct_dest;
+    [SerializeField] private Plug multiply_dest;
+    [SerializeField] private Knob lightThreshold;
+    [SerializeField] private Knob shadowThreshold;
+
+
     public List<Material> GetMaterialPatterns()
     {
         throw new System.NotImplementedException();
@@ -28,6 +37,7 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
     {
         throw new System.NotImplementedException();
     }
+
     public void Solve()
     {
         throw new System.NotImplementedException();
