@@ -78,7 +78,7 @@ Material:
     - _DstBlend: 0
     - _EdgeWidth: 0.1
     - _EmissionExposureWeight: -8
-    - _EmissionIntensity: 2
+    - _EmissionIntensity: 10
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
     - _NoiseScale: 36.45
@@ -115,8 +115,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _ActivatorPosition: {r: 7.92, g: 0.4, b: 2.4, a: 0}
-    - _BaseColor: {r: 0.4339623, g: 0.16990031, b: 0.22844921, a: 0}
+    - _ActivatorPosition: {r: 1.48, g: 0, b: 0, a: 0}
+    - _BaseColor: {r: 0.14217694, g: 0.32473168, b: 0.4245283, a: 0}
     - _DistanceRemapIn: {r: 5, g: 3, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
