@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class RiddleHologram : MonoBehaviour, IRiddle
 {
+    [SerializeField] private Plug deltaTime_source;
+    [SerializeField] private Plug time_source;
+    [SerializeField] private Plug uvTiling_dest;
+    [SerializeField] private Plug uvOffset_dest;
+    [SerializeField] private Plug add_dest;
+    [SerializeField] private Plug fresnel_source;
+    [SerializeField] private Knob blend;
     public List<Material> GetMaterialPatterns()
     {
         throw new System.NotImplementedException();

@@ -9,6 +9,9 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
     [SerializeField] private Plug dotProduct_dest;
     [SerializeField] private Plug crossProduct_dest;
     [SerializeField] private Plug multiply_dest;
+    [SerializeField] private Plug normal_source;
+    [SerializeField] private Plug one_source;
+    [SerializeField] private Plug operand_dest;
     [SerializeField] private Knob lightThreshold;
     [SerializeField] private Knob shadowThreshold;
 
