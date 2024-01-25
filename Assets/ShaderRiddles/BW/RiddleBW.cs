@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class RiddleBW : MonoBehaviour, IRiddle
 {
+    [SerializeField] private Plug fullScreenPass_dest;
+    [SerializeField] private Plug compare0_dest;
+    [SerializeField] private Plug compare1_dest;
+    [SerializeField] private Plug compare_source;
+    [SerializeField] private Plug xy_source;
+    [SerializeField] private Plug x2y2_source;
+    [SerializeField] private Knob threshold;
     public List<Material> GetMaterialPatterns()
     {
         throw new System.NotImplementedException();

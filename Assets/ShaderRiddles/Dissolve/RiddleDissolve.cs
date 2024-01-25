@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class RiddleDissolve : MonoBehaviour, IRiddle
 {
+    [SerializeField] private Plug alpha_dest;
+    [SerializeField] private Plug alphaClipThr_dest;
+    [SerializeField] private Plug noise_source;
+    [SerializeField] private Plug unicornDist_source;
     public List<Material> GetMaterialPatterns()
     {
         throw new System.NotImplementedException();

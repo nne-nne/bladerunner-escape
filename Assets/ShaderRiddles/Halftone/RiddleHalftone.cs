@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class RiddleHalftone : MonoBehaviour, IRiddle
 {
+    [SerializeField] private Knob smoothness;
+    [SerializeField] private Knob threshold;
+    [SerializeField] private Plug texture_dest;
+    [SerializeField] private Plug stripped_source;
+    [SerializeField] private Plug dotted_source;
     public List<Material> GetMaterialPatterns()
     {
         throw new System.NotImplementedException();
