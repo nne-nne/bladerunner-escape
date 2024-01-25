@@ -21,6 +21,8 @@ public class RiddleHologram : MonoBehaviour, IRiddle
 
     [SerializeField] private GameObject safe;
     [SerializeField] private GameObject unicorn;
+
+    [SerializeField] private MaterialManager materialManager;
     public List<Material> GetMaterialPatterns()
     {
         return materialPatterns;
@@ -44,6 +46,7 @@ public class RiddleHologram : MonoBehaviour, IRiddle
     {
         safe.SetActive(true);
         unicorn.SetActive(true);
+        EventBroadcaster.RiddleFinished();
     }
 
     public void Prepare()
@@ -51,6 +54,7 @@ public class RiddleHologram : MonoBehaviour, IRiddle
         SetKnobValue(0.0f);
         safe.SetActive(false);
         unicorn.SetActive(false);
+        materialManager.SetDefaultPattern();
     }
 
     private void Awake()
@@ -70,5 +74,9 @@ public class RiddleHologram : MonoBehaviour, IRiddle
         EventBroadcaster.ConnectionMade(fresnel_source, add_dest);
         EventBroadcaster.PlugDisconnected(deltaTime_source);
         SetKnobValue(targetBlendValue);
+        if (IsPassed())
+        {
+            OnPassed();
+        }
     }
 }

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3476975011917371799}
   - component: {fileID: 5055283630401393775}
   - component: {fileID: 8785652705941664726}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: switch8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 5555625327043877877}
   - component: {fileID: 5853872370618712872}
   - component: {fileID: 7671163338966212193}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 3864867535330041571}
   - component: {fileID: 543450652247023748}
   - component: {fileID: 7457148147174950326}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: switch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4615698274669995041}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 7876663536168782847}
   - component: {fileID: 673461428440687772}
   - component: {fileID: 652212141985455785}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: base
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -35,6 +35,7 @@ public class RiddleDissolve : MonoBehaviour, IRiddle
     public void OnPassed()
     {
         doorCollider.enabled = false;
+        EventBroadcaster.RiddleFinished();
     }
 
     public void Prepare()
@@ -45,5 +46,9 @@ public class RiddleDissolve : MonoBehaviour, IRiddle
     {
         EventBroadcaster.ConnectionMade(noise_source, alpha_dest);
         EventBroadcaster.ConnectionMade(unicornDist_source, alphaClipThr_dest);
+        if (IsPassed())
+        {
+            OnPassed();
+        }
     }
 }

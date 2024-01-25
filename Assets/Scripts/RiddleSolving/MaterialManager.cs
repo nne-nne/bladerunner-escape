@@ -5,6 +5,8 @@ using UnityEngine;
 public class MaterialManager : MonoBehaviour
 {
     public List<Material> celShadingMaterials;
+    public List<Material> cellPatternMaterials;
+    public List<Material> halftonePatternMaterials;
     public List<Overhaul> overhauls;
     public Transform world;
 
@@ -14,7 +16,10 @@ public class MaterialManager : MonoBehaviour
     {
         foreach (var o in overhauls)
         {
-            o.RestoreDefaultMaterial();
+            if(!o.patternOnly)
+            {
+                o.RestoreDefaultMaterial();
+            }
         }
     }
 
@@ -22,7 +27,43 @@ public class MaterialManager : MonoBehaviour
     {
         foreach(var o in overhauls)
         {
-            o.SetMaterial(celShadingMaterials[o.colorIndex]);
+            if(!o.patternOnly)
+            {
+                o.SetMaterial(celShadingMaterials[o.colorIndex]);
+            }
+        }
+    }
+
+    public void SetCellPattern()
+    {
+        foreach (var o in overhauls)
+        {
+            if (o.patternOnly)
+            {
+                o.SetMaterial(cellPatternMaterials[o.colorIndex]);
+            }
+        }
+    }
+
+    public void SetHalftonePattern()
+    {
+        foreach (var o in overhauls)
+        {
+            if (o.patternOnly)
+            {
+                o.SetMaterial(halftonePatternMaterials[o.colorIndex]);
+            }
+        }
+    }
+
+    public void SetDefaultPattern()
+    {
+        foreach (var o in overhauls)
+        {
+            if (o.patternOnly)
+            {
+                o.RestoreDefaultMaterial();
+            }
         }
     }
 
@@ -64,7 +105,6 @@ public class MaterialManager : MonoBehaviour
         for(int i = 0; i < worldOverhauls.Length; i++)
         {
             overhauls.Add(worldOverhauls[i]);
-            Debug.Log("added overhaul");
         }
     }
 

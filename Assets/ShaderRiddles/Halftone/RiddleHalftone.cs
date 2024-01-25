@@ -59,11 +59,12 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
     public void OnPassed()
     {
         safe.Open();
+        EventBroadcaster.RiddleFinished();
     }
 
     public void Prepare()
     {
-        
+        materialManager.SetHalftonePattern();
     }
 
     public void Solve()
@@ -75,6 +76,10 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
         EventBroadcaster.ConnectionMade(dotted_source, texture_dest);
         SetKnobValue(smoothness, targetSmoothness, "_Smoothness");
         SetKnobValue(threshold, targetThreshold, "_Threshold");
+        if (IsPassed())
+        {
+            OnPassed();
+        }
     }
 
     private void SetKnobValue(Knob k, float value, string property)

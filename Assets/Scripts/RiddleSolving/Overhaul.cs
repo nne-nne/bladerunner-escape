@@ -7,6 +7,7 @@ public class Overhaul : MonoBehaviour
     public Material defaultMaterial;
     public int colorIndex;
     private MeshRenderer mr;
+    public bool patternOnly = false;
 
     public void SetMaterial(Material m)
     {

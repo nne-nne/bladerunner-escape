@@ -48,12 +48,15 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
     public void OnPassed()
     {
         balconyDoor.Open();
+        EventBroadcaster.RiddleFinished();
     }
 
     public void Prepare()
     {
         SetKnobValue(lightThreshold, 0.9f, "_specularThreshold");
         SetKnobValue(shadowThreshold, 0.1f, "_shadowThreshold");
+        materialManager.SetCellPattern();
+        Debug.Log("cell pattern should be set by now");
     }
 
     public void Solve()
@@ -62,6 +65,10 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
         EventBroadcaster.ConnectionMade(normal_source, operand_dest);
         SetKnobValue(lightThreshold, targetLightThreshold, "_specularThreshold");
         SetKnobValue(shadowThreshold, targetShadowThreshold, "_shadowThreshold");
+        if (IsPassed())
+        {
+            OnPassed();
+        }
     }
 
     private void SetKnobValue(Knob k, float value, string property)

@@ -79,6 +79,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dcd60fdc6c310142aa81236a64ff68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doors: {fileID: 0}
+  closedRotation: {x: 0, y: 0, z: 0}
+  openRotation: {x: 0, y: 0, z: 0}
 --- !u!1 &6687523625426418023
 GameObject:
   m_ObjectHideFlags: 0

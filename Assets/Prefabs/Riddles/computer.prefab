@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4005254263377022632}
   - component: {fileID: 3889822135657644056}
   - component: {fileID: 4528993799525545309}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: screen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8639006972437781466}
   - component: {fileID: 2282081393166635977}
   - component: {fileID: 3560034319056640784}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: inputs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 3496903498254801719}
   - component: {fileID: 2793822956180027715}
   - component: {fileID: 1102908039904294873}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -258,7 +258,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7725770968189511405}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: computer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 4155301226475318110}
   - component: {fileID: 887457687447436777}
   - component: {fileID: 8717286854124046063}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ScreenFlat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 7835641845740547214}
   - component: {fileID: 7835641845740547201}
   - component: {fileID: 7835641845740547200}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -546,6 +546,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3315954688725367957, guid: decd1f74cb271f642ba7d43092c69491,
         type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: -3315954688725367957, guid: decd1f74cb271f642ba7d43092c69491,
+        type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -554,6 +559,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: acf1fc7cfbb36a44cb0c9194e7eee10b, type: 2}
+    - target: {fileID: -670516246673567159, guid: decd1f74cb271f642ba7d43092c69491,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: -382372128961845108, guid: decd1f74cb271f642ba7d43092c69491,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -564,11 +574,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: computer(1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: decd1f74cb271f642ba7d43092c69491,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 3376696159448222683, guid: decd1f74cb271f642ba7d43092c69491,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7bb36a2740929ff4f84796e6e2b85f05, type: 2}
+    - target: {fileID: 6326135749827134532, guid: decd1f74cb271f642ba7d43092c69491,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: decd1f74cb271f642ba7d43092c69491, type: 3}
 --- !u!4 &1673797534096409520 stripped

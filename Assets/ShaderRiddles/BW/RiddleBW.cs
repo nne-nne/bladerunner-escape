@@ -44,6 +44,7 @@ public class RiddleBW : MonoBehaviour, IRiddle
 
     public void OnPassed()
     {
+        EventBroadcaster.RiddleFinished();
         // Game finished
     }
 
@@ -59,6 +60,10 @@ public class RiddleBW : MonoBehaviour, IRiddle
         EventBroadcaster.ConnectionMade(x2y2_source, compare1_dest);
         EventBroadcaster.ConnectionMade(compare_source, fullScreenPass_dest);
         SetKnobValue(targetThreshold);
+        if (IsPassed())
+        {
+            OnPassed();
+        }
     }
 
     private void SetKnobValue(float value)
