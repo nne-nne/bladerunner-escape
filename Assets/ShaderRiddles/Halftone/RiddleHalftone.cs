@@ -9,46 +9,77 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
     [SerializeField] private Plug texture_dest;
     [SerializeField] private Plug stripped_source;
     [SerializeField] private Plug dotted_source;
+
+    [SerializeField] private Plug mainLight_source;
+    [SerializeField] private Plug time_source;
+    [SerializeField] private Plug dotProduct_dest;
+    [SerializeField] private Plug crossProduct_dest;
+    [SerializeField] private Plug multiply_dest;
+    [SerializeField] private Plug normal_source;
+    [SerializeField] private Plug one_source;
+    [SerializeField] private Plug operand_dest;
+    [SerializeField] private Knob lightThreshold;
+    [SerializeField] private Knob shadowThreshold;
+
+    [SerializeField] private PatternCamera patternCamera;
+    [SerializeField] private List<Material> materialPatterns;
+
+    [SerializeField] private float targetLightThreshold = 0.15f;
+    [SerializeField] private float targetShadowThreshold = 0.5f;
+    [SerializeField] private float targetSmoothness = 0.5f;
+    [SerializeField] private float targetThreshold = 0.5f;
+    [SerializeField] private float tolerance = 0.15f;
+
+    [SerializeField] private Safe safe;
+    [SerializeField] private MaterialManager materialManager;
     public List<Material> GetMaterialPatterns()
     {
-        throw new System.NotImplementedException();
+        return materialPatterns;
     }
 
     public PatternCamera GetPatternCamera()
     {
-        throw new System.NotImplementedException();
+        return patternCamera;
     }
 
     public bool IsPassed()
     {
-        throw new System.NotImplementedException();
+        if (mainLight_source.connectedPlug != dotProduct_dest) return false;
+        if (normal_source.connectedPlug != operand_dest) return false;
+        if (Mathf.Abs(lightThreshold.Value - targetLightThreshold) > tolerance) return false;
+        if (Mathf.Abs(shadowThreshold.Value - targetShadowThreshold) > tolerance) return false;
+
+        if (dotted_source.connectedPlug != texture_dest) return false;
+        if (Mathf.Abs(smoothness.Value - targetSmoothness) > tolerance) return false;
+        if (Mathf.Abs(threshold.Value - targetThreshold) > tolerance) return false;
+
+        return true;
     }
 
     public void OnPassed()
     {
-        throw new System.NotImplementedException();
+        safe.Open();
     }
 
     public void Prepare()
     {
-        throw new System.NotImplementedException();
+        
     }
 
     public void Solve()
     {
-        throw new System.NotImplementedException();
+        EventBroadcaster.ConnectionMade(mainLight_source, dotProduct_dest);
+        EventBroadcaster.ConnectionMade(normal_source, operand_dest);
+        SetKnobValue(lightThreshold, targetLightThreshold, "_specularThreshold");
+        SetKnobValue(shadowThreshold, targetShadowThreshold, "_shadowThreshold");
+        EventBroadcaster.ConnectionMade(dotted_source, texture_dest);
+        SetKnobValue(smoothness, targetSmoothness, "_Smoothness");
+        SetKnobValue(threshold, targetThreshold, "_Threshold");
     }
 
-
-    // Start is called before the first frame update
-    void Start()
+    private void SetKnobValue(Knob k, float value, string property)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        k.SetValue(value);
+        materialManager.SetMaterialsProperty(property, value);
     }
 }

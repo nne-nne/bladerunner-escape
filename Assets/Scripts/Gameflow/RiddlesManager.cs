@@ -18,6 +18,7 @@ public class RiddlesManager : MonoBehaviour
         if(riddlesToSolve.Count > 0)
         {
             CurrentRiddle = riddlesToSolve[0].GetComponent<IRiddle>();
+            CurrentRiddle.Prepare();
         }
         else
         {

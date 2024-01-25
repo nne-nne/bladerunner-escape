@@ -15,46 +15,58 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
     [SerializeField] private Knob lightThreshold;
     [SerializeField] private Knob shadowThreshold;
 
+    [SerializeField] private PatternCamera patternCamera;
+    [SerializeField] private List<Material> materialPatterns;
+    [SerializeField] private MaterialManager materialManager;
+
+    [SerializeField] private float targetLightThreshold = 0.15f;
+    [SerializeField] private float targetShadowThreshold = 0.5f;
+    [SerializeField] private float tolerance = 0.15f;
+
+    [SerializeField] private ScifiDoor balconyDoor;
+
 
     public List<Material> GetMaterialPatterns()
     {
-        throw new System.NotImplementedException();
+        return materialPatterns;
     }
 
     public PatternCamera GetPatternCamera()
     {
-        throw new System.NotImplementedException();
+        return patternCamera;
     }
 
     public bool IsPassed()
     {
-        throw new System.NotImplementedException();
+        if (mainLight_source.connectedPlug != dotProduct_dest) return false;
+        if (normal_source.connectedPlug != operand_dest) return false;
+        if (Mathf.Abs(lightThreshold.Value - targetLightThreshold) > tolerance) return false;
+        if (Mathf.Abs(shadowThreshold.Value - targetShadowThreshold) > tolerance) return false;
+        return true;
     }
 
     public void OnPassed()
     {
-        throw new System.NotImplementedException();
+        balconyDoor.Open();
     }
 
     public void Prepare()
     {
-        throw new System.NotImplementedException();
+        SetKnobValue(lightThreshold, 0.9f, "_specularThreshold");
+        SetKnobValue(shadowThreshold, 0.1f, "_shadowThreshold");
     }
 
     public void Solve()
     {
-        throw new System.NotImplementedException();
+        EventBroadcaster.ConnectionMade(mainLight_source, dotProduct_dest);
+        EventBroadcaster.ConnectionMade(normal_source, operand_dest);
+        SetKnobValue(lightThreshold, targetLightThreshold, "_specularThreshold");
+        SetKnobValue(shadowThreshold, targetShadowThreshold, "_shadowThreshold");
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void SetKnobValue(Knob k, float value, string property)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        k.SetValue(value);
+        materialManager.SetMaterialsProperty(property, value);
     }
 }

@@ -18,10 +18,8 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
         if(k == knob)
         {
             SetKnobValue(knob.Value);
-            Debug.Log("no mam");
             if (CheckWinCondition())
             {
-                Debug.Log("to tez");
                 OnPassed();
             }
         }
@@ -48,7 +46,6 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
     public void Prepare()
     {
         currentKnobValue = 0.0f;
-        Debug.Log("Riddle Tutorial 1 prepared");
     }
 
     public void OnPassed()

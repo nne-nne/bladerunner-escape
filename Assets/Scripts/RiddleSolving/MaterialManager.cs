@@ -8,6 +8,8 @@ public class MaterialManager : MonoBehaviour
     public List<Overhaul> overhauls;
     public Transform world;
 
+    [SerializeField] private Plug mainLightSource;
+
     public void RestoreDefaultMaterials()
     {
         foreach (var o in overhauls)
@@ -22,6 +24,38 @@ public class MaterialManager : MonoBehaviour
         {
             o.SetMaterial(celShadingMaterials[o.colorIndex]);
         }
+    }
+
+    private void OnConnectionMade(Plug source, Plug dest)
+    {
+        // change to fancy materials on main light source plugged
+        if(source == mainLightSource)
+        {
+            SetCellShading();
+        }
+    }
+
+    private void OnPlugDisconnected(Plug p)
+    {
+        // restore default materials on main light source unplugged
+        if(p == mainLightSource)
+        {
+            RestoreDefaultMaterials();
+        }
+    }
+
+    public void SetMaterialsProperty(string property, float value)
+    {
+        foreach (var mat in celShadingMaterials)
+        {
+            mat.SetFloat(property, value);
+        }
+    }
+
+    private void OnEnable()
+    {
+        EventBroadcaster.OnConnectionMade += OnConnectionMade;
+        EventBroadcaster.OnPlugDisconnected += OnPlugDisconnected;
     }
 
     public void Awake()

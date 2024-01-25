@@ -4414,6 +4414,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123857584}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &124559891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5956042729057250774, guid: 1423433155bf320498685916386ae66c,
+    type: 3}
+  m_PrefabInstance: {fileID: 261254996861567342}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &125875509 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 707784118561112211, guid: 9a6cb1939a166494f88ff008d0ebb3f5,
@@ -42723,6 +42729,9 @@ MonoBehaviour:
   - {fileID: 458627426}
   - {fileID: 1383882995}
   - {fileID: 1857451587}
+  - {fileID: 1051293568}
+  - {fileID: 1579287285}
+  - {fileID: 1610415799}
 --- !u!4 &947914552
 Transform:
   m_ObjectHideFlags: 0
@@ -43792,6 +43801,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 8c5314759e263f84381e21819f3e14c0, type: 2}
   overhauls: []
   world: {fileID: 476572181}
+  mainLightSource: {fileID: 1351768374}
 --- !u!1 &997839639 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4564641252933391535, guid: 244b13f704e70b34985a0259069d5a16,
@@ -45989,6 +45999,25 @@ MonoBehaviour:
   texture_dest: {fileID: 2071370327}
   stripped_source: {fileID: 1505407889}
   dotted_source: {fileID: 782684147}
+  mainLight_source: {fileID: 1351768374}
+  time_source: {fileID: 716058061}
+  dotProduct_dest: {fileID: 101629048}
+  crossProduct_dest: {fileID: 2047777803}
+  multiply_dest: {fileID: 796297710}
+  normal_source: {fileID: 175741320}
+  one_source: {fileID: 602689289}
+  operand_dest: {fileID: 652262776}
+  lightThreshold: {fileID: 654916355}
+  shadowThreshold: {fileID: 490670783}
+  patternCamera: {fileID: 0}
+  materialPatterns: []
+  targetLightThreshold: 0.15
+  targetShadowThreshold: 0.5
+  targetSmoothness: 0.5
+  targetThreshold: 0.5
+  tolerance: 0.15
+  safe: {fileID: 6504297286402307587}
+  materialManager: {fileID: 997350414}
 --- !u!1001 &1056139791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61477,6 +61506,13 @@ MonoBehaviour:
   operand_dest: {fileID: 652262776}
   lightThreshold: {fileID: 654916355}
   shadowThreshold: {fileID: 490670783}
+  patternCamera: {fileID: 0}
+  materialPatterns: []
+  materialManager: {fileID: 997350414}
+  targetLightThreshold: 0.05
+  targetShadowThreshold: 0.5
+  tolerance: 0.15
+  balconyDoor: {fileID: 0}
 --- !u!1 &1386693883
 GameObject:
   m_ObjectHideFlags: 0
@@ -70355,6 +70391,11 @@ MonoBehaviour:
   alphaClipThr_dest: {fileID: 814333772}
   noise_source: {fileID: 312874615}
   unicornDist_source: {fileID: 1250884775}
+  patternCamera: {fileID: 0}
+  materialPatterns: []
+  dissolve: {fileID: 0}
+  unicorn: {fileID: 0}
+  doorCollider: {fileID: 0}
 --- !u!1 &1580389787
 GameObject:
   m_ObjectHideFlags: 0
@@ -71951,6 +71992,13 @@ MonoBehaviour:
   xy_source: {fileID: 1553609622}
   x2y2_source: {fileID: 5496249}
   threshold: {fileID: 1760333941}
+  patternCamera: {fileID: 0}
+  materialPatterns: []
+  bwMaterial: {fileID: 2100000, guid: 690b6a7ea5197144cb6ed4287c5bd427, type: 2}
+  depthPass: {fileID: 889311248}
+  bwPass: {fileID: 6211008}
+  targetThreshold: 0.5
+  tolerance: 0.15
 --- !u!1 &1612359933
 GameObject:
   m_ObjectHideFlags: 0
@@ -80366,6 +80414,13 @@ MonoBehaviour:
   add_dest: {fileID: 1856270579}
   fresnel_source: {fileID: 1772119905}
   blend: {fileID: 1193763091}
+  patternCamera: {fileID: 0}
+  materialPatterns: []
+  hologramMaterial: {fileID: 2100000, guid: 10b94c837e501144fbac8f94b91c41d0, type: 2}
+  targetBlendValue: 0.5
+  tolerance: 0.15
+  safe: {fileID: 124559891}
+  unicorn: {fileID: 2054338192}
 --- !u!1001 &1863586623
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -92104,6 +92159,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 261254996861567342}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6504297286402307587 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7868332447242421654, guid: 1423433155bf320498685916386ae66c,
+    type: 3}
+  m_PrefabInstance: {fileID: 261254996861567342}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124559891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dcd60fdc6c310142aa81236a64ff68b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6552860865854551869
 Transform:
   m_ObjectHideFlags: 0

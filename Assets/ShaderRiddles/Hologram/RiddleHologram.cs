@@ -11,45 +11,64 @@ public class RiddleHologram : MonoBehaviour, IRiddle
     [SerializeField] private Plug add_dest;
     [SerializeField] private Plug fresnel_source;
     [SerializeField] private Knob blend;
+
+    [SerializeField] private PatternCamera patternCamera;
+    [SerializeField] private List<Material> materialPatterns;
+    [SerializeField] private Material hologramMaterial;
+
+    [SerializeField] private float targetBlendValue = 0.5f;
+    [SerializeField] private float tolerance = 0.15f;
+
+    [SerializeField] private GameObject safe;
+    [SerializeField] private GameObject unicorn;
     public List<Material> GetMaterialPatterns()
     {
-        throw new System.NotImplementedException();
+        return materialPatterns;
     }
 
     public PatternCamera GetPatternCamera()
     {
-        throw new System.NotImplementedException();
+        return patternCamera;
     }
 
     public bool IsPassed()
     {
-        throw new System.NotImplementedException();
+        if (time_source.connectedPlug != uvOffset_dest) return false;
+        if (deltaTime_source.connectedPlug != null) return false;
+        if (fresnel_source.connectedPlug != add_dest) return false;
+        if (Mathf.Abs(blend.Value - targetBlendValue) > tolerance) return false;
+        return true;
     }
 
     public void OnPassed()
     {
-        throw new System.NotImplementedException();
+        safe.SetActive(true);
+        unicorn.SetActive(true);
     }
 
     public void Prepare()
     {
-        throw new System.NotImplementedException();
+        SetKnobValue(0.0f);
+        safe.SetActive(false);
+        unicorn.SetActive(false);
+    }
+
+    private void Awake()
+    {
+        Prepare();
+    }
+
+    private void SetKnobValue(float value)
+    {
+        blend.SetValue(value);
+        hologramMaterial.SetFloat("_Blend", value);
     }
 
     public void Solve()
     {
-        throw new System.NotImplementedException();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        EventBroadcaster.ConnectionMade(time_source, uvOffset_dest);
+        EventBroadcaster.ConnectionMade(fresnel_source, add_dest);
+        EventBroadcaster.PlugDisconnected(deltaTime_source);
+        SetKnobValue(targetBlendValue);
     }
 }

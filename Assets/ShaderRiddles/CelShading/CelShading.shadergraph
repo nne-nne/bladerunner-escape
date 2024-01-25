@@ -26,6 +26,12 @@
         },
         {
             "m_Id": "04816e10a36441e79c36153e8aa4adf7"
+        },
+        {
+            "m_Id": "bcee2f5e2623423f88653cf38718028e"
+        },
+        {
+            "m_Id": "9f1cd35aef3245ed8a992110973aa6d9"
         }
     ],
     "m_Keywords": [],
@@ -1795,6 +1801,33 @@
 }
 
 {
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "9f1cd35aef3245ed8a992110973aa6d9",
+    "m_Guid": {
+        "m_GuidSerialized": "3b843e32-444a-403c-b587-7a442b515109"
+    },
+    "m_Name": "Threshold",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Threshold",
+    "m_DefaultReferenceName": "_Threshold",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
+}
+
+{
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
     "m_ObjectId": "a705045623f04331a29a9b0d9b7ac29e",
@@ -1905,6 +1938,33 @@
         "m_SerializableColors": []
     },
     "m_SerializedDescriptor": "VertexDescription.Normal"
+}
+
+{
+    "m_SGVersion": 1,
+    "m_Type": "UnityEditor.ShaderGraph.Internal.Vector1ShaderProperty",
+    "m_ObjectId": "bcee2f5e2623423f88653cf38718028e",
+    "m_Guid": {
+        "m_GuidSerialized": "535b7685-3f1e-452a-b06e-f686adcf40fc"
+    },
+    "m_Name": "Smoothness",
+    "m_DefaultRefNameVersion": 1,
+    "m_RefNameGeneratedByDisplayName": "Smoothness",
+    "m_DefaultReferenceName": "_Smoothness",
+    "m_OverrideReferenceName": "",
+    "m_GeneratePropertyBlock": true,
+    "m_UseCustomSlotLabel": false,
+    "m_CustomSlotLabel": "",
+    "m_Precision": 0,
+    "overrideHLSLDeclaration": false,
+    "hlslDeclarationOverride": 0,
+    "m_Hidden": false,
+    "m_Value": 0.0,
+    "m_FloatType": 0,
+    "m_RangeValues": {
+        "x": 0.0,
+        "y": 1.0
+    }
 }
 
 {
@@ -2171,6 +2231,12 @@
         },
         {
             "m_Id": "04816e10a36441e79c36153e8aa4adf7"
+        },
+        {
+            "m_Id": "bcee2f5e2623423f88653cf38718028e"
+        },
+        {
+            "m_Id": "9f1cd35aef3245ed8a992110973aa6d9"
         }
     ]
 }

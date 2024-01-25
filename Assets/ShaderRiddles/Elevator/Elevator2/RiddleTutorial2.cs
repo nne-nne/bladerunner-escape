@@ -18,9 +18,7 @@ public class RiddleTutorial2 : MonoBehaviour, IRiddle
     
     private void Awake()
     {
-        currentTextureIndex = 0;
-        elevator2.SetTexture("_PatternTexture", patternTextures[0]);
-        elevator2.SetFloat("_Overlay", 0f);
+
     }
 
     public void SetPatternTexture(int option)
@@ -57,7 +55,9 @@ public class RiddleTutorial2 : MonoBehaviour, IRiddle
 
     public void Prepare()
     {
-        
+        currentTextureIndex = 0;
+        elevator2.SetTexture("_PatternTexture", patternTextures[0]);
+        elevator2.SetFloat("_Overlay", 0f);
     }
 
     private void Update()

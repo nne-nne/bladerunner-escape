@@ -8,45 +8,42 @@ public class RiddleDissolve : MonoBehaviour, IRiddle
     [SerializeField] private Plug alphaClipThr_dest;
     [SerializeField] private Plug noise_source;
     [SerializeField] private Plug unicornDist_source;
+
+    [SerializeField] private PatternCamera patternCamera;
+    [SerializeField] private List<Material> materialPatterns;
+
+    [SerializeField] private Material dissolve;
+    [SerializeField] private GameObject unicorn;
+    [SerializeField] private Collider doorCollider;
     public List<Material> GetMaterialPatterns()
     {
-        throw new System.NotImplementedException();
+        return materialPatterns;
     }
 
     public PatternCamera GetPatternCamera()
     {
-        throw new System.NotImplementedException();
+        return patternCamera;
     }
 
     public bool IsPassed()
     {
-        throw new System.NotImplementedException();
+        if (unicornDist_source.connectedPlug != alphaClipThr_dest) return false;
+        if (noise_source.connectedPlug != alpha_dest) return false;
+        return true;
     }
 
     public void OnPassed()
     {
-        throw new System.NotImplementedException();
+        doorCollider.enabled = false;
     }
 
     public void Prepare()
     {
-        throw new System.NotImplementedException();
+        doorCollider.enabled = true;
     }
     public void Solve()
     {
-        throw new System.NotImplementedException();
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        EventBroadcaster.ConnectionMade(noise_source, alpha_dest);
+        EventBroadcaster.ConnectionMade(unicornDist_source, alphaClipThr_dest);
     }
 }
