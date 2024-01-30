@@ -153,6 +153,8 @@ Material:
     - _DisplacementLockObjectScale: 1
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 0
+    - _DotsScale: 51.11
+    - _DottedTexture: 1
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
@@ -178,13 +180,25 @@ Material:
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
+    - _LightCross: 0
+    - _LightDot: 0
+    - _LightMul: 0
+    - _LightOperand: 0
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
     - _Metallic: 0
     - _MetallicRemapMax: 1
     - _MetallicRemapMin: 0
+    - _NormalCross: 0
+    - _NormalDot: 0
     - _NormalMapSpace: 0
+    - _NormalMul: 0
+    - _NormalOperand: 0
     - _NormalScale: 1
+    - _OneCross: 0
+    - _OneDot: 0
+    - _OneMul: 0
+    - _OneOperand: 0
     - _OpaqueCullMode: 2
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
@@ -196,7 +210,7 @@ Material:
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
     - _RenderQueueType: 1
-    - _Smoothness: 0.5
+    - _Smoothness: 0
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
     - _SpecularAAScreenSpaceVariance: 0.1
@@ -213,6 +227,8 @@ Material:
     - _StencilWriteMaskDistortionVec: 4
     - _StencilWriteMaskGBuffer: 14
     - _StencilWriteMaskMV: 40
+    - _StripeWidth: 0.02
+    - _StrippedTexture: 0
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
     - _SurfaceType: 0
@@ -220,6 +236,10 @@ Material:
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
     - _Threshold: 0.5
+    - _TimeCross: 0
+    - _TimeDot: 0
+    - _TimeMul: 0
+    - _TimeOperand: 0
     - _TransmissionEnable: 1
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
@@ -238,7 +258,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     - _shadowThreshold: 0.5
-    - _specularThreshold: 0.15
+    - _specularThreshold: 0.05
     m_Colors:
     - _BaseColor: {r: 0.990566, g: 0.990566, b: 0.990566, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}

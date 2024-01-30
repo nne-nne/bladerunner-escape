@@ -93,6 +93,14 @@ public class MaterialManager : MonoBehaviour
         }
     }
 
+    public void SetMaterialsPropertyInt(string property, int value)
+    {
+        foreach (var mat in celShadingMaterials)
+        {
+            mat.SetInt(property, value);
+        }
+    }
+
     private void OnEnable()
     {
         EventBroadcaster.OnConnectionMade += OnConnectionMade;

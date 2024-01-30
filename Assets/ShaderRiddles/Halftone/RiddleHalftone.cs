@@ -5,7 +5,6 @@ using UnityEngine;
 public class RiddleHalftone : MonoBehaviour, IRiddle
 {
     [SerializeField] private Knob smoothness;
-    [SerializeField] private Knob threshold;
     [SerializeField] private Plug texture_dest;
     [SerializeField] private Plug stripped_source;
     [SerializeField] private Plug dotted_source;
@@ -27,7 +26,6 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
     [SerializeField] private float targetLightThreshold = 0.15f;
     [SerializeField] private float targetShadowThreshold = 0.5f;
     [SerializeField] private float targetSmoothness = 1.0f;
-    [SerializeField] private float targetThreshold = 1.0f;
     [SerializeField] private float tolerance = 0.15f;
 
     [SerializeField] private Safe safe;
@@ -53,7 +51,6 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
 
         if (dotted_source.connectedPlug != texture_dest) return false;
         if (Mathf.Abs(smoothness.Value - targetSmoothness) > tolerance) return false;
-        if (Mathf.Abs(threshold.Value - targetThreshold) > tolerance) return false;
 
         return true;
     }
@@ -71,6 +68,20 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
     public void Prepare()
     {
         materialManager.SetHalftonePattern();
+        EventBroadcaster.PlugDisconnected(operand_dest);
+        EventBroadcaster.PlugDisconnected(mainLight_source);
+        EventBroadcaster.PlugDisconnected(multiply_dest);
+        EventBroadcaster.PlugDisconnected(dotProduct_dest);
+        EventBroadcaster.PlugDisconnected(crossProduct_dest);
+        EventBroadcaster.PlugDisconnected(texture_dest);
+        materialManager.SetMaterialsPropertyInt("_LightMul", 0);
+        materialManager.SetMaterialsPropertyInt("_LightDot", 0);
+        materialManager.SetMaterialsPropertyInt("_LightCross", 0);
+        materialManager.SetMaterialsPropertyInt("_NormalOperand", 0);
+        materialManager.SetMaterialsPropertyInt("_TimeOperand", 0);
+        materialManager.SetMaterialsPropertyInt("_OneOperand", 0);
+        materialManager.SetMaterialsPropertyInt("_DottedTexture", 0);
+        materialManager.SetMaterialsPropertyInt("_StrippedTexture", 0);
     }
 
     public void Solve()
@@ -81,7 +92,6 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
         SetKnobValue(shadowThreshold, targetShadowThreshold, "_shadowThreshold");
         EventBroadcaster.ConnectionMade(dotted_source, texture_dest);
         SetKnobValue(smoothness, targetSmoothness, "_Smoothness");
-        SetKnobValue(threshold, targetThreshold, "_Threshold");
         if (IsPassed())
         {
             OnPassed();
@@ -96,6 +106,59 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
 
     private void OnConnectionMade(Plug source, Plug dest)
     {
+        if (source == mainLight_source)
+        {
+            if (dest == multiply_dest)
+            {
+                materialManager.SetMaterialsPropertyInt("_LightMul", 1);
+            }
+            else if (dest == dotProduct_dest)
+            {
+                materialManager.SetMaterialsPropertyInt("_LightDot", 1);
+            }
+            else if (dest == crossProduct_dest)
+            {
+                materialManager.SetMaterialsPropertyInt("_LightCross", 1);
+            }
+            else
+            {
+                EventBroadcaster.PlugDisconnected(mainLight_source);
+            }
+        }
+        else if (dest == operand_dest)
+        {
+            if (source == normal_source)
+            {
+                materialManager.SetMaterialsPropertyInt("_NormalOperand", 1);
+            }
+            else if (source == one_source)
+            {
+                materialManager.SetMaterialsPropertyInt("_OneOperand", 1);
+            }
+            else if (source == time_source)
+            {
+                materialManager.SetMaterialsPropertyInt("_TimeOperand", 1);
+            }
+            else
+            {
+                EventBroadcaster.PlugDisconnected(operand_dest);
+            }
+        }
+        else if(dest == texture_dest)
+        {
+            if(source == dotted_source)
+            {
+                materialManager.SetMaterialsPropertyInt("_DottedTexture", 1);
+            }
+            else if(source == stripped_source)
+            {
+                materialManager.SetMaterialsPropertyInt("_StrippedTexture", 1);
+            }
+            else
+            {
+                EventBroadcaster.PlugDisconnected(texture_dest);
+            }
+        }
         if (IsPassed())
         {
             OnPassed();
@@ -104,6 +167,29 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
 
     private void OnPlugDisconnected(Plug p)
     {
+        if (p == operand_dest)
+        {
+            materialManager.SetMaterialsPropertyInt("_NormalOperand", 0);
+            materialManager.SetMaterialsPropertyInt("_TimeOperand", 0);
+            materialManager.SetMaterialsPropertyInt("_OneOperand", 0);
+        }
+        else if (p == multiply_dest)
+        {
+            materialManager.RestoreDefaultMaterials();
+        }
+        else if (p == crossProduct_dest)
+        {
+            materialManager.RestoreDefaultMaterials();
+        }
+        else if (p == dotProduct_dest)
+        {
+            materialManager.RestoreDefaultMaterials();
+        }
+        else if(p == texture_dest)
+        {
+            materialManager.SetMaterialsPropertyInt("_DottedTexture", 0);
+            materialManager.SetMaterialsPropertyInt("_StrippedTexture", 0);
+        }
         if (IsPassed())
         {
             OnPassed();
@@ -112,6 +198,18 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
 
     private void OnKnobValueChanged(Knob k, float value)
     {
+        if (k == smoothness)
+        {
+            SetKnobValue(smoothness,smoothness.Value, "_Smoothness");
+        }
+        else if (k == lightThreshold)
+        {
+            SetKnobValue(lightThreshold, lightThreshold.Value, "_specularThreshold");
+        }
+        else if (k == shadowThreshold)
+        {
+            SetKnobValue(shadowThreshold, shadowThreshold.Value, "_shadowThreshold");
+        }
         if (IsPassed())
         {
             OnPassed();

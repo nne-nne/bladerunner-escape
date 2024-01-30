@@ -10,6 +10,7 @@ public class RiddleHologram : MonoBehaviour, IRiddle
     [SerializeField] private Plug uvOffset_dest;
     [SerializeField] private Plug add_dest;
     [SerializeField] private Plug fresnel_source;
+    [SerializeField] private Plug main_light_source;
     [SerializeField] private Knob blend;
 
     [SerializeField] private PatternCamera patternCamera;
@@ -40,6 +41,7 @@ public class RiddleHologram : MonoBehaviour, IRiddle
         if (time_source.connectedPlug != uvOffset_dest) return false;
         if (deltaTime_source.connectedPlug != null) return false;
         if (fresnel_source.connectedPlug != add_dest) return false;
+        if (main_light_source.connectedPlug != null) return false;
         if (Mathf.Abs(blend.Value - targetBlendValue) > tolerance) return false;
         return true;
     }
@@ -84,6 +86,7 @@ public class RiddleHologram : MonoBehaviour, IRiddle
         EventBroadcaster.ConnectionMade(time_source, uvOffset_dest);
         EventBroadcaster.ConnectionMade(fresnel_source, add_dest);
         EventBroadcaster.PlugDisconnected(deltaTime_source);
+        EventBroadcaster.PlugDisconnected(main_light_source);
         SetKnobValue(targetBlendValue);
         if (IsPassed())
         {

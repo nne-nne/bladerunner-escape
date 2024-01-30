@@ -14,6 +14,7 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
     [SerializeField] private Plug operand_dest;
     [SerializeField] private Knob lightThreshold;
     [SerializeField] private Knob shadowThreshold;
+    [SerializeField] private Plug textureDest;
 
     [SerializeField] private PatternCamera patternCamera;
     [SerializeField] private List<Material> materialPatterns;
@@ -61,6 +62,20 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
         SetKnobValue(lightThreshold, 0.9f, "_specularThreshold");
         SetKnobValue(shadowThreshold, 0.1f, "_shadowThreshold");
         materialManager.SetCellPattern();
+        EventBroadcaster.PlugDisconnected(operand_dest);
+        EventBroadcaster.PlugDisconnected(mainLight_source);
+        EventBroadcaster.PlugDisconnected(multiply_dest);
+        EventBroadcaster.PlugDisconnected(dotProduct_dest);
+        EventBroadcaster.PlugDisconnected(crossProduct_dest);
+        EventBroadcaster.PlugDisconnected(textureDest);
+        materialManager.SetMaterialsPropertyInt("_LightMul", 0);
+        materialManager.SetMaterialsPropertyInt("_LightDot", 0);
+        materialManager.SetMaterialsPropertyInt("_LightCross", 0);
+        materialManager.SetMaterialsPropertyInt("_NormalOperand", 0);
+        materialManager.SetMaterialsPropertyInt("_TimeOperand", 0);
+        materialManager.SetMaterialsPropertyInt("_OneOperand", 0);
+        materialManager.SetMaterialsPropertyInt("_DottedTexture", 0);
+        materialManager.SetMaterialsPropertyInt("_StrippedTexture", 0);
     }
 
     public void Solve()
@@ -83,6 +98,44 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
 
     private void OnConnectionMade(Plug source, Plug dest)
     {
+        if(source == mainLight_source)
+        {
+            if(dest == multiply_dest)
+            {
+                materialManager.SetMaterialsPropertyInt("_LightMul", 1);
+            }
+            else if(dest == dotProduct_dest)
+            {
+                materialManager.SetMaterialsPropertyInt("_LightDot", 1);
+            }
+            else if(dest == crossProduct_dest)
+            {
+                materialManager.SetMaterialsPropertyInt("_LightCross", 1);
+            }
+            else
+            {
+                EventBroadcaster.PlugDisconnected(mainLight_source);
+            }
+        }
+        else if(dest == operand_dest)
+        {
+            if(source == normal_source)
+            {
+                materialManager.SetMaterialsPropertyInt("_NormalOperand", 1);
+            }
+            else if(source == one_source)
+            {
+                materialManager.SetMaterialsPropertyInt("_OneOperand", 1);
+            }
+            else if(source == time_source)
+            {
+                materialManager.SetMaterialsPropertyInt("_TimeOperand", 1);
+            }
+            else
+            {
+                EventBroadcaster.PlugDisconnected(operand_dest);
+            }
+        }
         if (IsPassed())
         {
             OnPassed();
@@ -91,6 +144,24 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
 
     private void OnPlugDisconnected(Plug p)
     {
+        if(p == operand_dest)
+        {
+            materialManager.SetMaterialsPropertyInt("_NormalOperand", 0);
+            materialManager.SetMaterialsPropertyInt("_TimeOperand", 0);
+            materialManager.SetMaterialsPropertyInt("_OneOperand", 0);
+        }
+        else if(p == multiply_dest)
+        {
+            materialManager.RestoreDefaultMaterials();
+        }
+        else if(p == crossProduct_dest)
+        {
+            materialManager.RestoreDefaultMaterials();
+        }
+        else if(p == dotProduct_dest)
+        {
+            materialManager.RestoreDefaultMaterials();
+        }
         if (IsPassed())
         {
             OnPassed();
@@ -99,6 +170,14 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
 
     private void OnKnobValueChanged(Knob k, float value)
     {
+        if (k == lightThreshold)
+        {
+            SetKnobValue(lightThreshold, lightThreshold.Value, "_specularThreshold");
+        }
+        else if (k == shadowThreshold)
+        {
+            SetKnobValue(shadowThreshold, shadowThreshold.Value, "_shadowThreshold");
+        }
         if (IsPassed())
         {
             OnPassed();

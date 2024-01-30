@@ -74,7 +74,7 @@ Material:
     - _AlphaSrcBlend: 1
     - _AlphaToMask: 0
     - _AlphaToMaskInspectorValue: 0
-    - _Blend: 0.5
+    - _Blend: 0
     - _BlendMode: 0
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
@@ -91,7 +91,7 @@ Material:
     - _EmissionIntensity: 2.09
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
-    - _FresnelAdd: 1
+    - _FresnelAdd: 0
     - _FresnelOffset: 0
     - _FresnelPower: 0.27
     - _FresnelTiling: 0
@@ -117,7 +117,7 @@ Material:
     - _SupportDecals: 1
     - _SurfaceType: 1
     - _TimeAdd: 0
-    - _TimeOffset: 1
+    - _TimeOffset: 0
     - _TimeTiling: 0
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
