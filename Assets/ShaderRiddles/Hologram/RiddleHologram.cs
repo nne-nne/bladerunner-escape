@@ -57,10 +57,15 @@ public class RiddleHologram : MonoBehaviour, IRiddle
 
     public void Prepare()
     {
-        SetKnobValue(0.0f);
+        SetKnobValue(0.0f); 
+        hologramMaterial.SetFloat("_Blend", 0.0f);
         safe.SetActive(false);
         unicorn.SetActive(false);
-        materialManager.SetDefaultPattern();
+        //materialManager.SetDefaultPattern();
+
+        EventBroadcaster.PlugDisconnected(add_dest);
+        EventBroadcaster.PlugDisconnected(uvOffset_dest);
+        EventBroadcaster.PlugDisconnected(uvTiling_dest);
     }
 
     private void Awake()
@@ -76,7 +81,6 @@ public class RiddleHologram : MonoBehaviour, IRiddle
 
     public void Solve()
     {
-        Debug.Log("hologram solve");
         EventBroadcaster.ConnectionMade(time_source, uvOffset_dest);
         EventBroadcaster.ConnectionMade(fresnel_source, add_dest);
         EventBroadcaster.PlugDisconnected(deltaTime_source);
@@ -89,6 +93,42 @@ public class RiddleHologram : MonoBehaviour, IRiddle
 
     private void OnConnectionMade(Plug source, Plug dest)
     {
+        if(source == fresnel_source && dest == add_dest)
+        {
+            hologramMaterial.SetInt("_FresnelAdd", 1);
+        }
+        else if (source == fresnel_source && dest == uvTiling_dest)
+        {
+            hologramMaterial.SetInt("_FresnelTiling", 1);
+        }
+        else if (source == fresnel_source && dest == uvOffset_dest)
+        {
+            hologramMaterial.SetInt("_FresnelOffset", 1);
+        }
+        else if (source == time_source && dest == add_dest)
+        {
+            hologramMaterial.SetInt("_TimeAdd", 1);
+        }
+        else if (source == time_source && dest == uvTiling_dest)
+        {
+            hologramMaterial.SetInt("_TimeTiling", 1);
+        }
+        else if (source == time_source && dest == uvOffset_dest)
+        {
+            hologramMaterial.SetInt("_TimeOffset", 1);
+        }
+        else if (source == deltaTime_source && dest == add_dest)
+        {
+            hologramMaterial.SetInt("_DeltaAdd", 1);
+        }
+        else if (source == deltaTime_source && dest == uvTiling_dest)
+        {
+            hologramMaterial.SetInt("_DeltaAdd", 1);
+        }
+        else if (source == deltaTime_source && dest == uvOffset_dest)
+        {
+            hologramMaterial.SetInt("_DeltaAdd", 1);
+        }
         if (IsPassed())
         {
             OnPassed();
@@ -97,6 +137,24 @@ public class RiddleHologram : MonoBehaviour, IRiddle
 
     private void OnPlugDisconnected(Plug p)
     {
+        if(p == add_dest)
+        {
+            hologramMaterial.SetInt("_DeltaAdd", 0);
+            hologramMaterial.SetInt("_TimeAdd", 0);
+            hologramMaterial.SetInt("_FresnelAdd", 0);
+        }
+        else if(p == uvTiling_dest)
+        {
+            hologramMaterial.SetInt("_DeltaTiling", 0);
+            hologramMaterial.SetInt("_TimeTiling", 0);
+            hologramMaterial.SetInt("_FresnelTiling", 0);
+        }
+        else if(p == uvOffset_dest)
+        {
+            hologramMaterial.SetInt("_DeltaOffset", 0);
+            hologramMaterial.SetInt("_TimeOffset", 0);
+            hologramMaterial.SetInt("_FresnelOffset", 0);
+        }
         if (IsPassed())
         {
             OnPassed();
@@ -105,6 +163,10 @@ public class RiddleHologram : MonoBehaviour, IRiddle
 
     private void OnKnobValueChanged(Knob k, float value)
     {
+        if(k == blend)
+        {
+            hologramMaterial.SetFloat("_Blend", k.Value);
+        }
         if (IsPassed())
         {
             OnPassed();

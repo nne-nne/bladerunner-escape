@@ -48,10 +48,13 @@ public class RiddleDissolve : MonoBehaviour, IRiddle
         doorCollider.enabled = true;
         EventBroadcaster.PlugDisconnected(alpha_dest);
         EventBroadcaster.PlugDisconnected(alphaClipThr_dest);
+        dissolve.SetInt("_UnicornAlpha", 0);
+        dissolve.SetInt("_UnicornAlphaClip", 0);
+        dissolve.SetInt("_NoiseAlpha", 0);
+        dissolve.SetInt("_NoiseAlphaClip", 0);
     }
     public void Solve()
     {
-        Debug.Log("dissolve solve");
         EventBroadcaster.ConnectionMade(noise_source, alpha_dest);
         EventBroadcaster.ConnectionMade(unicornDist_source, alphaClipThr_dest);
         if (IsPassed())

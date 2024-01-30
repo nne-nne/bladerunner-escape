@@ -79,6 +79,9 @@ Material:
     - _ConservativeDepthOffsetEnable: 0
     - _CullMode: 2
     - _CullModeForward: 2
+    - _DeltaAdd: 0
+    - _DeltaOffset: 0
+    - _DeltaTiling: 0
     - _DepthOffsetEnable: 0
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
@@ -88,7 +91,10 @@ Material:
     - _EmissionIntensity: 2.09
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
+    - _FresnelAdd: 1
+    - _FresnelOffset: 0
     - _FresnelPower: 0.27
+    - _FresnelTiling: 0
     - _OpaqueCullMode: 2
     - _RayTracing: 0
     - _ReceivesSSR: 1
@@ -110,6 +116,9 @@ Material:
     - _StencilWriteMaskMV: 40
     - _SupportDecals: 1
     - _SurfaceType: 1
+    - _TimeAdd: 0
+    - _TimeOffset: 1
+    - _TimeTiling: 0
     - _TransparentBackfaceEnable: 0
     - _TransparentCullMode: 2
     - _TransparentDepthPostpassEnable: 0

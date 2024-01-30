@@ -75,7 +75,6 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
 
     public void Solve()
     {
-        Debug.Log("halftone solve");
         EventBroadcaster.ConnectionMade(mainLight_source, dotProduct_dest);
         EventBroadcaster.ConnectionMade(normal_source, operand_dest);
         SetKnobValue(lightThreshold, targetLightThreshold, "_specularThreshold");
