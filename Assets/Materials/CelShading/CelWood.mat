@@ -180,7 +180,7 @@ Material:
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
-    - _LightCross: 0
+    - _LightCross: 1
     - _LightDot: 0
     - _LightMul: 0
     - _LightOperand: 0
@@ -198,7 +198,7 @@ Material:
     - _OneCross: 0
     - _OneDot: 0
     - _OneMul: 0
-    - _OneOperand: 0
+    - _OneOperand: 1
     - _OpaqueCullMode: 2
     - _PPDLodThreshold: 5
     - _PPDMaxSamples: 15
