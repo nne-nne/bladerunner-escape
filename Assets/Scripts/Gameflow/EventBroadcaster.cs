@@ -26,11 +26,11 @@ public static class EventBroadcaster
     }
     public static event Action OnGameFinished;
 
-    public static void RiddleFinished()
+    public static void RiddleFinished(IRiddle riddle)
     {
-        OnRiddleFinished?.Invoke();
+        OnRiddleFinished?.Invoke(riddle);
     }
-    public static event Action OnRiddleFinished;
+    public static event Action<IRiddle> OnRiddleFinished;
 
     public static void ConnectionMade(Plug input, Plug output)
     {

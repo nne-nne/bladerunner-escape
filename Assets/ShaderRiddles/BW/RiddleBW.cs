@@ -20,6 +20,8 @@ public class RiddleBW : MonoBehaviour, IRiddle
     [SerializeField] private GameObject bwPass;
     [SerializeField] private float targetThreshold = 0.5f;
     [SerializeField] private float tolerance = 0.15f;
+
+    private bool passed = false;
     public List<Material> GetMaterialPatterns()
     {
         return materialPatterns;
@@ -44,14 +46,21 @@ public class RiddleBW : MonoBehaviour, IRiddle
 
     public void OnPassed()
     {
-        EventBroadcaster.RiddleFinished();
-        // Game finished
+        if(!passed)
+        {
+            EventBroadcaster.RiddleFinished(this);
+            // Game finished
+            Debug.Log("Game finished");
+            passed = true;
+        }
     }
 
     public void Prepare()
     {
         depthPass.SetActive(false);
         bwPass.SetActive(false);
+        threshold.SetValue(0.3f);
+        Shader.SetGlobalFloat("_Threshold", threshold.Value);
     }
 
     public void Solve()
@@ -75,5 +84,65 @@ public class RiddleBW : MonoBehaviour, IRiddle
     private void Awake()
     {
         Prepare();
+    }
+
+    private void OnConnectionMade(Plug source, Plug dest)
+    {
+        if((source==xy_source || source ==x2y2_source))
+        {
+            if(dest == fullScreenPass_dest)
+            {
+                depthPass.SetActive(true);
+                bwPass.SetActive(false);
+            }
+        }
+        else if(compare_source.connectedPlug == fullScreenPass_dest)
+        {
+            if((xy_source.connectedPlug == compare0_dest && x2y2_source.connectedPlug == compare1_dest)||
+                xy_source.connectedPlug == compare1_dest && x2y2_source.connectedPlug == compare0_dest)
+            {
+                depthPass.SetActive(false);
+                bwPass.SetActive(true);
+            }
+        }
+        if (IsPassed())
+        {
+            OnPassed();
+        }
+    }
+
+    private void OnPlugDisconnected(Plug p)
+    {
+        if(p== fullScreenPass_dest)
+        {
+            depthPass.SetActive(false);
+            bwPass.SetActive(false);
+        }
+    }
+
+    private void OnKnobValueChanged(Knob k, float value)
+    {
+        if(k == threshold)
+        {
+            bwMaterial.SetFloat("_Threshold", k.Value);
+        }
+        if (IsPassed())
+        {
+            OnPassed();
+        }
+    }
+
+    private void OnEnable()
+    {
+        EventBroadcaster.OnConnectionMade += OnConnectionMade;
+        EventBroadcaster.OnPlugDisconnected += OnPlugDisconnected;
+        EventBroadcaster.OnKnobValueChanged += OnKnobValueChanged;
+    }
+
+    private void OnDisable()
+    {
+        EventBroadcaster.OnConnectionMade -= OnConnectionMade;
+        EventBroadcaster.OnPlugDisconnected -= OnPlugDisconnected;
+        EventBroadcaster.OnKnobValueChanged -= OnKnobValueChanged;
     }
 }

@@ -24,6 +24,7 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
     [SerializeField] private float tolerance = 0.15f;
 
     [SerializeField] private ScifiDoor balconyDoor;
+    private bool passed = false;
 
 
     public List<Material> GetMaterialPatterns()
@@ -47,8 +48,12 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
 
     public void OnPassed()
     {
-        balconyDoor.Open();
-        EventBroadcaster.RiddleFinished();
+        if(!passed)
+        {
+            balconyDoor.Open();
+            EventBroadcaster.RiddleFinished(this);
+            passed = true;
+        }
     }
 
     public void Prepare()
@@ -56,7 +61,6 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
         SetKnobValue(lightThreshold, 0.9f, "_specularThreshold");
         SetKnobValue(shadowThreshold, 0.1f, "_shadowThreshold");
         materialManager.SetCellPattern();
-        Debug.Log("cell pattern should be set by now");
     }
 
     public void Solve()
@@ -75,5 +79,43 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
     {
         k.SetValue(value);
         materialManager.SetMaterialsProperty(property, value);
+    }
+
+    private void OnConnectionMade(Plug source, Plug dest)
+    {
+        if (IsPassed())
+        {
+            OnPassed();
+        }
+    }
+
+    private void OnPlugDisconnected(Plug p)
+    {
+        if (IsPassed())
+        {
+            OnPassed();
+        }
+    }
+
+    private void OnKnobValueChanged(Knob k, float value)
+    {
+        if (IsPassed())
+        {
+            OnPassed();
+        }
+    }
+
+    private void OnEnable()
+    {
+        EventBroadcaster.OnConnectionMade += OnConnectionMade;
+        EventBroadcaster.OnPlugDisconnected += OnPlugDisconnected;
+        EventBroadcaster.OnKnobValueChanged += OnKnobValueChanged;
+    }
+
+    private void OnDisable()
+    {
+        EventBroadcaster.OnConnectionMade -= OnConnectionMade;
+        EventBroadcaster.OnPlugDisconnected -= OnPlugDisconnected;
+        EventBroadcaster.OnKnobValueChanged -= OnKnobValueChanged;
     }
 }

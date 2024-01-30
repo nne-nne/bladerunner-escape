@@ -44,7 +44,6 @@ public class RiddleTutorial2 : MonoBehaviour, IRiddle
     {
         if (currentTextureIndex == targetTextureIndex)
         {
-            Debug.Log("Riddle Tutorial 2: Passed");
             return true;
         }
         else
@@ -83,7 +82,7 @@ public class RiddleTutorial2 : MonoBehaviour, IRiddle
     public void OnPassed()
     {
         elevator.StartAnimation();
-        EventBroadcaster.RiddleFinished();
+        EventBroadcaster.RiddleFinished(this);
     }
 
     public bool IsPassed()

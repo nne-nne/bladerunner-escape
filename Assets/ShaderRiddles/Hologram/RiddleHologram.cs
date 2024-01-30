@@ -23,6 +23,8 @@ public class RiddleHologram : MonoBehaviour, IRiddle
     [SerializeField] private GameObject unicorn;
 
     [SerializeField] private MaterialManager materialManager;
+
+    private bool passed = false;
     public List<Material> GetMaterialPatterns()
     {
         return materialPatterns;
@@ -44,9 +46,13 @@ public class RiddleHologram : MonoBehaviour, IRiddle
 
     public void OnPassed()
     {
-        safe.SetActive(true);
-        unicorn.SetActive(true);
-        EventBroadcaster.RiddleFinished();
+        if(!passed)
+        {
+            safe.SetActive(true);
+            unicorn.SetActive(true);
+            EventBroadcaster.RiddleFinished(this);
+            passed = true;
+        }
     }
 
     public void Prepare()
@@ -70,6 +76,7 @@ public class RiddleHologram : MonoBehaviour, IRiddle
 
     public void Solve()
     {
+        Debug.Log("hologram solve");
         EventBroadcaster.ConnectionMade(time_source, uvOffset_dest);
         EventBroadcaster.ConnectionMade(fresnel_source, add_dest);
         EventBroadcaster.PlugDisconnected(deltaTime_source);
@@ -78,5 +85,43 @@ public class RiddleHologram : MonoBehaviour, IRiddle
         {
             OnPassed();
         }
+    }
+
+    private void OnConnectionMade(Plug source, Plug dest)
+    {
+        if (IsPassed())
+        {
+            OnPassed();
+        }
+    }
+
+    private void OnPlugDisconnected(Plug p)
+    {
+        if (IsPassed())
+        {
+            OnPassed();
+        }
+    }
+
+    private void OnKnobValueChanged(Knob k, float value)
+    {
+        if (IsPassed())
+        {
+            OnPassed();
+        }
+    }
+
+    private void OnEnable()
+    {
+        EventBroadcaster.OnConnectionMade += OnConnectionMade;
+        EventBroadcaster.OnPlugDisconnected += OnPlugDisconnected;
+        EventBroadcaster.OnKnobValueChanged += OnKnobValueChanged;
+    }
+
+    private void OnDisable()
+    {
+        EventBroadcaster.OnConnectionMade -= OnConnectionMade;
+        EventBroadcaster.OnPlugDisconnected -= OnPlugDisconnected;
+        EventBroadcaster.OnKnobValueChanged -= OnKnobValueChanged;
     }
 }

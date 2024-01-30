@@ -6228,77 +6228,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.03, y: 1.63, z: 0.7}
   m_Center: {x: 0, y: -0.03, z: 0.42}
---- !u!1 &201583757
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 201583759}
-  - component: {fileID: 201583758}
-  m_Layer: 0
-  m_Name: BW Custom Pass (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &201583758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201583757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26d6499a6bd256e47b859377446493a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  fadeRadius: 0
-  priority: 0
-  customPasses:
-  - rid: 7774828673178009600
-  injectionPoint: 3
-  m_TargetCamera: {fileID: 0}
-  useTargetCamera: 0
-  references:
-    version: 2
-    RefIds:
-    - rid: 7774828673178009600
-      type: {class: FullScreenCustomPass, ns: UnityEngine.Rendering.HighDefinition,
-        asm: Unity.RenderPipelines.HighDefinition.Runtime}
-      data:
-        m_Name: BW
-        enabled: 1
-        targetColorBuffer: 0
-        targetDepthBuffer: 0
-        clearFlags: 0
-        passFoldout: 0
-        m_Version: 0
-        fullscreenPassMaterial: {fileID: 2100000, guid: 690b6a7ea5197144cb6ed4287c5bd427,
-          type: 2}
-        materialPassIndex: 0
-        materialPassName: Custom Pass 0
-        fetchColorBuffer: 0
---- !u!4 &201583759
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 201583757}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 19
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &204025571
 GameObject:
   m_ObjectHideFlags: 0
@@ -26351,7 +26280,6 @@ GameObject:
   m_Component:
   - component: {fileID: 679937222}
   - component: {fileID: 679937226}
-  - component: {fileID: 679937225}
   - component: {fileID: 679937224}
   - component: {fileID: 679937223}
   m_Layer: 0
@@ -26515,14 +26443,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!81 &679937225
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 679937221}
-  m_Enabled: 1
 --- !u!20 &679937226
 Camera:
   m_ObjectHideFlags: 0
@@ -33515,7 +33435,6 @@ GameObject:
   m_Component:
   - component: {fileID: 749387929}
   - component: {fileID: 749387933}
-  - component: {fileID: 749387932}
   - component: {fileID: 749387931}
   - component: {fileID: 749387930}
   m_Layer: 0
@@ -33679,14 +33598,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!81 &749387932
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749387928}
-  m_Enabled: 1
 --- !u!20 &749387933
 Camera:
   m_ObjectHideFlags: 0
@@ -35904,7 +35815,6 @@ GameObject:
   m_Component:
   - component: {fileID: 809532348}
   - component: {fileID: 809532352}
-  - component: {fileID: 809532351}
   - component: {fileID: 809532350}
   - component: {fileID: 809532349}
   m_Layer: 0
@@ -36068,14 +35978,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!81 &809532351
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809532347}
-  m_Enabled: 1
 --- !u!20 &809532352
 Camera:
   m_ObjectHideFlags: 0
@@ -37197,6 +37099,12 @@ Transform:
   m_Father: {fileID: 1220465247}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &849592581 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8641167292615689387, guid: 978bd3287315aa946b7e5224ec749cf5,
+    type: 3}
+  m_PrefabInstance: {fileID: 381973016}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &851754764 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7515388509256035409, guid: 1fd76eba831e86b4aabf4560a1b16d53,
@@ -41263,6 +41171,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   riddlesToSolve:
   - {fileID: 1371784620}
+  - {fileID: 458627426}
   - {fileID: 1383882995}
   - {fileID: 1857451587}
   - {fileID: 1051293568}
@@ -66981,8 +66890,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tabletScreen: {fileID: 925950632}
   patternCameras:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1594701028}
+  - {fileID: 1593111359}
+  - {fileID: 1692872332}
+  - {fileID: 749387930}
+  - {fileID: 809532349}
+  - {fileID: 1902466667}
+  - {fileID: 679937223}
   tabletImage: {fileID: 1841101473}
 --- !u!1 &1579287285
 GameObject:
@@ -67035,7 +66949,7 @@ MonoBehaviour:
   patternCamera: {fileID: 1902466667}
   materialPatterns: []
   dissolve: {fileID: 2100000, guid: 9b72399a0f8a240448377c3c1be69d35, type: 2}
-  unicorn: {fileID: 2054338192}
+  unicorn: {fileID: 849592581}
   doorCollider: {fileID: 201266378}
 --- !u!1 &1580389787
 GameObject:
@@ -67826,7 +67740,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1593111358}
   - component: {fileID: 1593111362}
-  - component: {fileID: 1593111361}
   - component: {fileID: 1593111360}
   - component: {fileID: 1593111359}
   m_Layer: 0
@@ -67990,14 +67903,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!81 &1593111361
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1593111357}
-  m_Enabled: 1
 --- !u!20 &1593111362
 Camera:
   m_ObjectHideFlags: 0
@@ -68135,7 +68040,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1594701027}
   - component: {fileID: 1594701031}
-  - component: {fileID: 1594701030}
   - component: {fileID: 1594701029}
   - component: {fileID: 1594701028}
   m_Layer: 0
@@ -68299,14 +68203,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!81 &1594701030
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1594701026}
-  m_Enabled: 1
 --- !u!20 &1594701031
 Camera:
   m_ObjectHideFlags: 0
@@ -71356,7 +71252,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1692872328}
   - component: {fileID: 1692872331}
-  - component: {fileID: 1692872330}
   - component: {fileID: 1692872329}
   - component: {fileID: 1692872332}
   m_Layer: 0
@@ -71506,14 +71401,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!81 &1692872330
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1692872327}
-  m_Enabled: 1
 --- !u!20 &1692872331
 Camera:
   m_ObjectHideFlags: 0
@@ -74770,7 +74657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainLight: {fileID: 1757400910}
-  bwThreshold: 1
+  bwThreshold: -10
 --- !u!4 &1789557892
 Transform:
   m_ObjectHideFlags: 0
@@ -78357,7 +78244,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1902466666}
   - component: {fileID: 1902466670}
-  - component: {fileID: 1902466669}
   - component: {fileID: 1902466668}
   - component: {fileID: 1902466667}
   m_Layer: 0
@@ -78521,14 +78407,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!81 &1902466669
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1902466665}
-  m_Enabled: 1
 --- !u!20 &1902466670
 Camera:
   m_ObjectHideFlags: 0

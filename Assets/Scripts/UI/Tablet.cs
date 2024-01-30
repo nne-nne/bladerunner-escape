@@ -34,12 +34,16 @@ public class Tablet : MonoBehaviour
         }
     }
 
-    private void OnRiddleFinished()
+    private void OnRiddleFinished(IRiddle prevRiddle)
     {
-        patternCameras.RemoveAt(0);
+
         if(patternCameras.Count > 0)
         {
-            tabletImage.material = patternCameras[0].CameraTextureMaterial;
+            patternCameras.RemoveAt(0);
+            if (patternCameras.Count > 0)
+            {
+                tabletImage.material = patternCameras[0].CameraTextureMaterial;
+            }
         }
     }
 

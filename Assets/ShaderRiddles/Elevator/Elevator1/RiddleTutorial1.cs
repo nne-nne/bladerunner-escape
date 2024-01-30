@@ -51,7 +51,7 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
     public void OnPassed()
     {
         exit.Open();
-        EventBroadcaster.RiddleFinished();
+        EventBroadcaster.RiddleFinished(this);
     }
 
     public bool IsPassed()

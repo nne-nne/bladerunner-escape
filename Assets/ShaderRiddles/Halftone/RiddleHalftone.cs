@@ -26,12 +26,14 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
 
     [SerializeField] private float targetLightThreshold = 0.15f;
     [SerializeField] private float targetShadowThreshold = 0.5f;
-    [SerializeField] private float targetSmoothness = 0.5f;
-    [SerializeField] private float targetThreshold = 0.5f;
+    [SerializeField] private float targetSmoothness = 1.0f;
+    [SerializeField] private float targetThreshold = 1.0f;
     [SerializeField] private float tolerance = 0.15f;
 
     [SerializeField] private Safe safe;
     [SerializeField] private MaterialManager materialManager;
+    private bool passed = false;
+
     public List<Material> GetMaterialPatterns()
     {
         return materialPatterns;
@@ -58,8 +60,12 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
 
     public void OnPassed()
     {
-        safe.Open();
-        EventBroadcaster.RiddleFinished();
+        if(!passed)
+        {
+            safe.Open();
+            EventBroadcaster.RiddleFinished(this);
+            passed = true;
+        }
     }
 
     public void Prepare()
@@ -69,6 +75,7 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
 
     public void Solve()
     {
+        Debug.Log("halftone solve");
         EventBroadcaster.ConnectionMade(mainLight_source, dotProduct_dest);
         EventBroadcaster.ConnectionMade(normal_source, operand_dest);
         SetKnobValue(lightThreshold, targetLightThreshold, "_specularThreshold");
@@ -86,5 +93,43 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
     {
         k.SetValue(value);
         materialManager.SetMaterialsProperty(property, value);
+    }
+
+    private void OnConnectionMade(Plug source, Plug dest)
+    {
+        if (IsPassed())
+        {
+            OnPassed();
+        }
+    }
+
+    private void OnPlugDisconnected(Plug p)
+    {
+        if (IsPassed())
+        {
+            OnPassed();
+        }
+    }
+
+    private void OnKnobValueChanged(Knob k, float value)
+    {
+        if (IsPassed())
+        {
+            OnPassed();
+        }
+    }
+
+    private void OnEnable()
+    {
+        EventBroadcaster.OnConnectionMade += OnConnectionMade;
+        EventBroadcaster.OnPlugDisconnected += OnPlugDisconnected;
+        EventBroadcaster.OnKnobValueChanged += OnKnobValueChanged;
+    }
+
+    private void OnDisable()
+    {
+        EventBroadcaster.OnConnectionMade -= OnConnectionMade;
+        EventBroadcaster.OnPlugDisconnected -= OnPlugDisconnected;
+        EventBroadcaster.OnKnobValueChanged -= OnKnobValueChanged;
     }
 }

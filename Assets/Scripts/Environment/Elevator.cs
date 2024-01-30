@@ -20,10 +20,10 @@ public class Elevator : MonoBehaviour
         doorLower.Close();
         yield return new WaitForSeconds(launchTime);
         yield return new WaitForSeconds(rideTime);
-        Transform playerParent = player.parent;
-        player.SetParent(this.transform);
+        //Transform playerParent = player.parent;
+        //player.SetParent(this.transform);
         transform.position = targetPosition;
-        player.SetParent(playerParent);
+        //player.SetParent(playerParent);
         doorUpper.Open();
     }
 
