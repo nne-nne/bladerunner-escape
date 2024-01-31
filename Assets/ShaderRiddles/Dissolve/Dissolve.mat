@@ -81,7 +81,7 @@ Material:
     - _EmissionIntensity: 10
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
-    - _NoiseAlpha: 0
+    - _NoiseAlpha: 1
     - _NoiseAlphaClip: 0
     - _NoiseScale: 36.45
     - _OpaqueCullMode: 2
@@ -112,14 +112,14 @@ Material:
     - _TransparentWritingMotionVec: 0
     - _TransparentZWrite: 0
     - _UnicornAlpha: 0
-    - _UnicornAlphaClip: 0
+    - _UnicornAlphaClip: 1
     - _UseShadowThreshold: 0
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 3
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _ActivatorPosition: {r: 1.2862003, g: -3.13073, b: -1.0777102, a: 0}
+    - _ActivatorPosition: {r: 1.7301149, g: -3.1182885, b: -1.8714118, a: 0}
     - _BaseColor: {r: 0.14217694, g: 0.32473168, b: 0.4245283, a: 0}
     - _DistanceRemapIn: {r: 3, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}

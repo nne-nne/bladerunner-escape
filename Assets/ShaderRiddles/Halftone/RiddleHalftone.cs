@@ -21,7 +21,7 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
     [SerializeField] private Knob shadowThreshold;
 
     [SerializeField] private PatternCamera patternCamera;
-    [SerializeField] private List<Material> materialPatterns;
+    [SerializeField] private Material patternMaterial;
 
     [SerializeField] private float targetLightThreshold = 0.15f;
     [SerializeField] private float targetShadowThreshold = 0.5f;
@@ -32,9 +32,9 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
     [SerializeField] private MaterialManager materialManager;
     private bool passed = false;
 
-    public List<Material> GetMaterialPatterns()
+    public Material GetPatternMaterial()
     {
-        return materialPatterns;
+        return patternMaterial;
     }
 
     public PatternCamera GetPatternCamera()
@@ -82,6 +82,7 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
         materialManager.SetMaterialsPropertyInt("_OneOperand", 0);
         materialManager.SetMaterialsPropertyInt("_DottedTexture", 0);
         materialManager.SetMaterialsPropertyInt("_StrippedTexture", 0);
+        patternMaterial.SetInt("_IsActive", 1);
     }
 
     public void Solve()
@@ -102,6 +103,11 @@ public class RiddleHalftone : MonoBehaviour, IRiddle
     {
         k.SetValue(value);
         materialManager.SetMaterialsProperty(property, value);
+    }
+
+    private void Awake()
+    {
+        patternMaterial.SetInt("_IsActive", 0);
     }
 
     private void OnConnectionMade(Plug source, Plug dest)

@@ -31,7 +31,7 @@ Shader "FullScreen/BW_FullscreenPass"
         // There are also a lot of utility function you can use inside Common.hlsl and Color.hlsl,
         // you can check them out in the source code of the core SRP package.
 
-        float _Threshold;
+        float _Threshold = 1.0;
 
     float4 FullScreenPass(Varyings varyings) : SV_Target
     {
@@ -49,7 +49,7 @@ Shader "FullScreen/BW_FullscreenPass"
         float scaledDepth = depth;
         float2 neighbour = float2(varyings.positionCS.x + 2.0, varyings.positionCS.y + 2.0);
         float neighbourDepth = LoadCameraDepth(neighbour);
-        float res = scaledDepth * _Threshold > neighbourDepth ? 1.0 : 0.0;
+        float res = scaledDepth > neighbourDepth ? 1.0 : 0.0;
         color.rgb = float3(res, res, res);
 
         return color;

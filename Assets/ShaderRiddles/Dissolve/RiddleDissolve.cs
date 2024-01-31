@@ -10,15 +10,15 @@ public class RiddleDissolve : MonoBehaviour, IRiddle
     [SerializeField] private Plug unicornDist_source;
 
     [SerializeField] private PatternCamera patternCamera;
-    [SerializeField] private List<Material> materialPatterns;
+    [SerializeField] private Material patternMaterial;
 
     [SerializeField] private Material dissolve;
     [SerializeField] private GameObject unicorn;
     [SerializeField] private Collider doorCollider;
     private bool passed = false;
-    public List<Material> GetMaterialPatterns()
+    public Material GetPatternMaterial()
     {
-        return materialPatterns;
+        return patternMaterial;
     }
 
     public PatternCamera GetPatternCamera()
@@ -52,6 +52,7 @@ public class RiddleDissolve : MonoBehaviour, IRiddle
         dissolve.SetInt("_UnicornAlphaClip", 0);
         dissolve.SetInt("_NoiseAlpha", 0);
         dissolve.SetInt("_NoiseAlphaClip", 0);
+        patternMaterial.SetInt("_IsActive", 1);
     }
     public void Solve()
     {
@@ -136,6 +137,7 @@ public class RiddleDissolve : MonoBehaviour, IRiddle
     private void Awake()
     {
         Prepare();
+        patternMaterial.SetInt("_IsActive", 0);
     }
 
     private void Update()

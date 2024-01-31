@@ -182,6 +182,7 @@ Material:
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
+    - _IsActive: 1
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
     - _Metallic: 0
@@ -237,6 +238,7 @@ Material:
     - _UVEmissive: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
+    - _ValueMultiplier: 20
     - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4

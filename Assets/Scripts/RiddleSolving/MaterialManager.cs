@@ -9,6 +9,7 @@ public class MaterialManager : MonoBehaviour
     public List<Material> halftonePatternMaterials;
     public List<Overhaul> overhauls;
     public Transform world;
+    public Transform patternWorld;
 
     [SerializeField] private Plug mainLightSource;
 
@@ -40,6 +41,7 @@ public class MaterialManager : MonoBehaviour
         {
             if (o.patternOnly)
             {
+                Debug.Log("set pattern material");
                 o.SetMaterial(cellPatternMaterials[o.colorIndex]);
             }
         }
@@ -113,6 +115,11 @@ public class MaterialManager : MonoBehaviour
         for(int i = 0; i < worldOverhauls.Length; i++)
         {
             overhauls.Add(worldOverhauls[i]);
+        }
+        var patternOverhauls = patternWorld.GetComponentsInChildren<Overhaul>();
+        for (int i = 0; i < patternOverhauls.Length; i++)
+        {
+            overhauls.Add(patternOverhauls[i]);
         }
     }
 

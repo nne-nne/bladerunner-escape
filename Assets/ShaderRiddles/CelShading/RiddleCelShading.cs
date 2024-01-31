@@ -17,7 +17,7 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
     [SerializeField] private Plug textureDest;
 
     [SerializeField] private PatternCamera patternCamera;
-    [SerializeField] private List<Material> materialPatterns;
+    [SerializeField] private Material patternMaterial;
     [SerializeField] private MaterialManager materialManager;
 
     [SerializeField] private float targetLightThreshold = 0.15f;
@@ -28,9 +28,9 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
     private bool passed = false;
 
 
-    public List<Material> GetMaterialPatterns()
+    public Material GetPatternMaterial()
     {
-        return materialPatterns;
+        return patternMaterial;
     }
 
     public PatternCamera GetPatternCamera()
@@ -76,6 +76,7 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
         materialManager.SetMaterialsPropertyInt("_OneOperand", 0);
         materialManager.SetMaterialsPropertyInt("_DottedTexture", 0);
         materialManager.SetMaterialsPropertyInt("_StrippedTexture", 0);
+        patternMaterial.SetInt("_IsActive", 1);
     }
 
     public void Solve()
@@ -196,5 +197,10 @@ public class RiddleCelShading : MonoBehaviour, IRiddle
         EventBroadcaster.OnConnectionMade -= OnConnectionMade;
         EventBroadcaster.OnPlugDisconnected -= OnPlugDisconnected;
         EventBroadcaster.OnKnobValueChanged -= OnKnobValueChanged;
+    }
+
+    private void Awake()
+    {
+        patternMaterial.SetInt("_IsActive", 0);
     }
 }
