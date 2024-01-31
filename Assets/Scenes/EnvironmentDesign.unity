@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 16.023273, g: 23.276867, b: 36.39362, a: 1}
+  m_IndirectSpecularColor: {r: 15.979928, g: 23.215187, b: 36.3053, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -66949,7 +66949,7 @@ MonoBehaviour:
   patternCamera: {fileID: 1902466667}
   patternMaterial: {fileID: 2100000, guid: 2d132f9699334ae4b9cbe9e07b48c670, type: 2}
   dissolve: {fileID: 2100000, guid: 9b72399a0f8a240448377c3c1be69d35, type: 2}
-  unicorn: {fileID: 0}
+  unicorn: {fileID: 664389629}
   doorCollider: {fileID: 201266378}
 --- !u!1 &1580389787
 GameObject:
@@ -83274,8 +83274,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tabletScreen: {fileID: 379886233}
   patternCameras:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1594701028}
+  - {fileID: 1593111359}
+  - {fileID: 1692872332}
+  - {fileID: 749387930}
+  - {fileID: 809532349}
+  - {fileID: 1902466667}
+  - {fileID: 679937223}
   tabletImage: {fileID: 1531465144}
 --- !u!1 &2108562712
 GameObject:
