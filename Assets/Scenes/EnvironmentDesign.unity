@@ -4063,6 +4063,7 @@ Transform:
   - {fileID: 541889292}
   - {fileID: 1529366717}
   - {fileID: 1415915465}
+  - {fileID: 457999942}
   m_Father: {fileID: 1109862176}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -12463,7 +12464,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &379886234
 Transform:
   m_ObjectHideFlags: 0
@@ -14222,6 +14223,37 @@ MonoBehaviour:
   defaultMaterial: {fileID: 0}
   colorIndex: 1
   patternOnly: 0
+--- !u!1 &457999941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 457999942}
+  m_Layer: 0
+  m_Name: UnicornActivator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &457999942
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457999941}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 122691782}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &458627426
 GameObject:
   m_ObjectHideFlags: 0
@@ -21236,7 +21268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2fadf230d1919748a9aa21d40f74619, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackingType: 1
+  m_TrackingType: 0
   m_UpdateType: 0
   m_IgnoreTrackingState: 0
   m_PositionInput:
@@ -45893,7 +45925,7 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 1109862173}
   m_CameraFloorOffsetObject: {fileID: 122691781}
   m_RequestedTrackingOriginMode: 0
-  m_CameraYOffset: 1.1176
+  m_CameraYOffset: 1.7
 --- !u!4 &1109862176
 Transform:
   m_ObjectHideFlags: 0
@@ -67659,8 +67691,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1593111357}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.51, y: -1.643, z: 0.471}
+  m_LocalRotation: {x: 0.101633154, y: 0.27239534, z: -0.02792357, w: 0.9563952}
+  m_LocalPosition: {x: -5.868848, y: -8.115039, z: 2.916073}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -67959,8 +67991,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1594701026}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.51, y: -1.643, z: 0.471}
+  m_LocalRotation: {x: 0.02687918, y: -0.9541314, z: 0.094178155, w: 0.28291556}
+  m_LocalPosition: {x: -4.3496494, y: -8.53732, z: 3.5825267}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -68927,7 +68959,7 @@ MonoBehaviour:
   bwMaterial: {fileID: 2100000, guid: 690b6a7ea5197144cb6ed4287c5bd427, type: 2}
   depthPass: {fileID: 889311248}
   bwPass: {fileID: 6211008}
-  targetThreshold: 0.5
+  targetThreshold: 1
   tolerance: 0.15
 --- !u!1 &1612359933
 GameObject:
@@ -76392,7 +76424,7 @@ MonoBehaviour:
   targetBlendValue: 0.5
   tolerance: 0.15
   safe: {fileID: 124559891}
-  unicorn: {fileID: 2054338192}
+  unicorn: {fileID: 457999941}
   materialManager: {fileID: 997350414}
 --- !u!1001 &1863586623
 PrefabInstance:
@@ -83449,6 +83481,7 @@ MonoBehaviour:
   - {fileID: 1902466667}
   - {fileID: 679937223}
   tabletImage: {fileID: 1531465144}
+  riddleManager: {fileID: 947914551}
 --- !u!1 &2108562712
 GameObject:
   m_ObjectHideFlags: 0

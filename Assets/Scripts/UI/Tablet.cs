@@ -8,6 +8,7 @@ public class Tablet : MonoBehaviour
     [SerializeField] private GameObject tabletScreen;
     [SerializeField] private List<PatternCamera> patternCameras;
     [SerializeField] private Image tabletImage;
+    [SerializeField] private RiddlesManager riddleManager;
 
     public void Show()
     {
@@ -34,26 +35,36 @@ public class Tablet : MonoBehaviour
         }
     }
 
-    private void OnRiddleFinished(IRiddle prevRiddle)
+    public void SetPatternMaterial(Material m)
     {
-
-        if(patternCameras.Count > 0)
-        {
-            patternCameras.RemoveAt(0);
-            if (patternCameras.Count > 0)
-            {
-                tabletImage.material = patternCameras[0].CameraTextureMaterial;
-            }
-        }
+        tabletImage.material = m;
     }
 
-    private void OnEnable()
+    //private void OnRiddleFinished(IRiddle prevRiddle)
+    //{
+
+    //    if(patternCameras.Count > 0)
+    //    {
+    //        patternCameras.RemoveAt(0);
+    //        if (patternCameras.Count > 0)
+    //        {
+    //            tabletImage.material = patternCameras[0].CameraTextureMaterial;
+    //        }
+    //    }
+    //}
+
+    private void Start()
     {
-        EventBroadcaster.OnRiddleFinished += OnRiddleFinished;
+        riddleManager = FindObjectOfType<RiddlesManager>();
     }
 
-    private void OnDisable()
-    {
-        EventBroadcaster.OnRiddleFinished -= OnRiddleFinished;
-    }
+    //private void OnEnable()
+    //{
+    //    EventBroadcaster.OnRiddleFinished += OnRiddleFinished;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    EventBroadcaster.OnRiddleFinished -= OnRiddleFinished;
+    //}
 }

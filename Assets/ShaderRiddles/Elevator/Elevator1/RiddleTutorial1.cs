@@ -80,7 +80,7 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
     private void Awake()
     {
         Prepare();
-        patternMaterial.SetInt("_IsActive", 0);
+        patternMaterial.SetInt("_IsActive", 1);
     }
 
     private void OnEnable()
