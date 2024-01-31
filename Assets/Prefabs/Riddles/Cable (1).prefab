@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 721819361}
   - component: {fileID: 721819363}
   - component: {fileID: 721819362}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2620781419165794160}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cable (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 2620781419483045230}
   - component: {fileID: 2620781419483045229}
   - component: {fileID: 2620781419483045231}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Destination
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,6 +304,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: connector (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058452989204401370, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3515098173917675403, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6940306452611684657, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -314,6 +324,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 28b76c8fd803af5459cb0eecb028e488, type: 2}
+    - target: {fileID: 8382964041697185976, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655280147159005519, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb, type: 3}
 --- !u!4 &7989024861679940376 stripped

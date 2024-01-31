@@ -8,7 +8,7 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
     [SerializeField] private float targetKnobValue;
     [SerializeField] private float tolerance = 0.01f;
     [SerializeField] private PatternCamera patternCamera;
-    [SerializeField] private List<Material> materialPatterns;
+    [SerializeField] private Material patternMaterial;
     [SerializeField] private Knob knob;
     [SerializeField] private ScifiDoor exit;
     private float currentKnobValue;
@@ -29,7 +29,6 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
     {
         currentKnobValue = v;
         elevator1Material.SetFloat("_KnobValue", currentKnobValue);
-        CheckWinCondition();
     }
 
     private bool CheckWinCondition()
@@ -46,23 +45,31 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
 
     public void Prepare()
     {
-        Debug.Log("Riddle Tutorial 1 prepared");
+        currentKnobValue = 0.0f;
+        patternMaterial.SetInt("_IsActive", 1);
     }
 
     public void OnPassed()
     {
         exit.Open();
-        EventBroadcaster.RiddleFinished();
+        EventBroadcaster.RiddleFinished(this);
     }
 
     public bool IsPassed()
     {
         return CheckWinCondition();
     }
-
-    public List<Material> GetMaterialPatterns()
+    public void Solve()
     {
-        return materialPatterns;
+        float val = (targetKnobValue-currentKnobValue) % 1f;
+        if (val < 0f) val += 1f;
+        EventBroadcaster.KnobValueChanged(knob, val);
+    }
+
+
+    public Material GetPatternMaterial()
+    {
+        return patternMaterial;
     }
 
     public PatternCamera GetPatternCamera()
@@ -73,6 +80,7 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
     private void Awake()
     {
         Prepare();
+        patternMaterial.SetInt("_IsActive", 0);
     }
 
     private void OnEnable()

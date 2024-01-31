@@ -26,6 +26,16 @@ public class Knob : MonoBehaviour, ITakeable
         Debug.Log("knob should be used via event broadcaster");
     }
 
+    public void SetValue(float value)
+    {
+        Value = value % 1f;
+        if (Value < 0)
+        {
+            Value += 1;
+        }
+        VisualizeKnobValueChanged(Value * 360);
+    }
+
     private void Rotate(float value)
     {
         Value = (Value + value) % 1f;

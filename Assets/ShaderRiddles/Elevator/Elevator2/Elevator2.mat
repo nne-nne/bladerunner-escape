@@ -65,7 +65,7 @@ Material:
     - _EnableFogOnTransparent: 1
     - _Metallic: 0.5
     - _OpaqueCullMode: 2
-    - _Overlay: 0
+    - _Overlay: 30
     - _RayTracing: 0
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0

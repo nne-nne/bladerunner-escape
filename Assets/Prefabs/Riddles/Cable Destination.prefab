@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6759068157824729122}
   - component: {fileID: 6759068157824729120}
   - component: {fileID: 6759068157824729121}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8760603523690277299}
-  m_Layer: 0
+  - component: {fileID: 8842468283174722370}
+  m_Layer: 7
   m_Name: Cable Destination
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,6 +118,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: -28.45, z: 0}
+--- !u!114 &8842468283174722370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8760603523690277300}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c19fdde34fbd7b4c8705cbb4c223cd4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  connectedPlug: {fileID: 0}
 --- !u!1 &8760603523880651601
 GameObject:
   m_ObjectHideFlags: 0
@@ -129,7 +143,7 @@ GameObject:
   - component: {fileID: 8760603523880651693}
   - component: {fileID: 8760603523880651694}
   - component: {fileID: 8760603523880651692}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Destination
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +158,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8760603523880651601}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0.828, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -304,6 +318,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: connector (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058452989204401370, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3515098173917675403, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6940306452611684657, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -314,6 +338,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 28b76c8fd803af5459cb0eecb028e488, type: 2}
+    - target: {fileID: 8382964041697185976, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655280147159005519, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb, type: 3}
 --- !u!4 &3680495761859569115 stripped

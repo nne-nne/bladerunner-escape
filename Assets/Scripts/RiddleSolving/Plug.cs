@@ -36,11 +36,16 @@ public class Plug : MonoBehaviour, ITakeable
 
     private void OnPlugDisconnected(Plug p)
     {
-        if(p == this)
+        if(p == this && rb != null)
         {
             rb.isKinematic = false;
-            connectedPlug.connectedPlug = null;
-            connectedPlug = null;
+            if(connectedPlug!=null)
+            {
+                Plug other = connectedPlug;
+                other.connectedPlug = null;
+                connectedPlug = null;
+                EventBroadcaster.PlugDisconnected(other);
+            }
         }
     }
 
