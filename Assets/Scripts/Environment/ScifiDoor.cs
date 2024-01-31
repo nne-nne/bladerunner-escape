@@ -12,6 +12,8 @@ public class ScifiDoor : MonoBehaviour, IOpenable
     [SerializeField] private Vector2 lowerBounds;
     [SerializeField] private float openingTime;
     [SerializeField] private Collider col;
+    [SerializeField] public AudioClip doorsSound;
+    static AudioSource audio_source;
     private bool animating = false;
     private IEnumerator OpenCoroutine()
     {
@@ -63,6 +65,7 @@ public class ScifiDoor : MonoBehaviour, IOpenable
         if(!animating)
         {
             StartCoroutine(CloseCoroutine());
+            audio_source.PlayOneShot(doorsSound);
         }
     }
 
@@ -71,6 +74,13 @@ public class ScifiDoor : MonoBehaviour, IOpenable
         if (!animating)
         {
             StartCoroutine(OpenCoroutine());
+            audio_source.PlayOneShot(doorsSound);
         }
+    }
+
+    private void Start()
+    {
+        audio_source = GetComponent<AudioSource>();
+
     }
 }

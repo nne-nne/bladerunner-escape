@@ -6,6 +6,10 @@ public class Knob : MonoBehaviour, ITakeable
 {
     [SerializeField] public float Value { get; private set; }
     [SerializeField] private GameObject activationMarker;
+    private float previousValue = 0;
+    [SerializeField] public AudioClip switchSound;
+    private AudioSource audio_source;
+
 
     public void Drop()
     {
@@ -44,10 +48,22 @@ public class Knob : MonoBehaviour, ITakeable
 
     private void OnKnobValueChanged(Knob knob, float value)
     {
-        if(knob == this)
+        if (knob == this)
         {
             Rotate(value);
+            Debug.Log(value);
+            
+            previousValue += Mathf.Abs(value);
+            if (previousValue >= 0.02)
+            {
+                audio_source.PlayOneShot(switchSound);
+                previousValue = 0; // Zaktualizuj poprzedni¹ wartoœæ
+            }
+
         }
+
+       
+
     }
 
     private void VisualizeKnobValueChanged(float newValue)
@@ -59,6 +75,8 @@ public class Knob : MonoBehaviour, ITakeable
     {
         activationMarker.SetActive(false);
         VisualizeKnobValueChanged(Value);
+
+        audio_source = GetComponent<AudioSource>();
     }
 
     private void OnEnable()
