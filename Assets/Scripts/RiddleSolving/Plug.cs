@@ -26,9 +26,10 @@ public class Plug : MonoBehaviour, ITakeable
     {
         if (from == this && to.connectedPlug == null)
         {
-            transform.position = to.transform.position;
-            transform.rotation = to.transform.rotation;
-            rb.isKinematic = true;
+            // the following bit of code should be executed by XR plugin socket interactable
+            //transform.position = to.transform.position;
+            //transform.rotation = to.transform.rotation;
+            //rb.isKinematic = true;
             connectedPlug = to;
             to.connectedPlug = from;
         }
@@ -38,7 +39,7 @@ public class Plug : MonoBehaviour, ITakeable
     {
         if(p == this && rb != null)
         {
-            rb.isKinematic = false;
+            //rb.isKinematic = false;
             if(connectedPlug!=null)
             {
                 Plug other = connectedPlug;
