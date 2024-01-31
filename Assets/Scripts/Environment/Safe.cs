@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Safe : MonoBehaviour
+public class Safe : MonoBehaviour, IOpenable
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Transform doors;
+    [SerializeField] private Vector3 closedRotation;
+    [SerializeField] private Vector3 openRotation;
+    public void Close()
     {
-        
+        doors.transform.localRotation = Quaternion.Euler(closedRotation);
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Open()
     {
-        
+        doors.transform.localRotation = Quaternion.Euler(openRotation);
     }
 }

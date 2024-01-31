@@ -29,7 +29,6 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
     {
         currentKnobValue = v;
         elevator1Material.SetFloat("_KnobValue", currentKnobValue);
-        CheckWinCondition();
     }
 
     private bool CheckWinCondition()
@@ -46,19 +45,26 @@ public class RiddleTutorial1 : MonoBehaviour, IRiddle
 
     public void Prepare()
     {
-        Debug.Log("Riddle Tutorial 1 prepared");
+        currentKnobValue = 0.0f;
     }
 
     public void OnPassed()
     {
         exit.Open();
-        EventBroadcaster.RiddleFinished();
+        EventBroadcaster.RiddleFinished(this);
     }
 
     public bool IsPassed()
     {
         return CheckWinCondition();
     }
+    public void Solve()
+    {
+        float val = (targetKnobValue-currentKnobValue) % 1f;
+        if (val < 0f) val += 1f;
+        EventBroadcaster.KnobValueChanged(knob, val);
+    }
+
 
     public List<Material> GetMaterialPatterns()
     {

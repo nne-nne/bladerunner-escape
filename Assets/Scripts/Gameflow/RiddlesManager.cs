@@ -12,16 +12,23 @@ public class RiddlesManager : MonoBehaviour
         return CurrentRiddle.IsPassed();
     }
 
-    private void NextRiddle()
-    {
-        riddlesToSolve.RemoveAt(0);
-        if(riddlesToSolve.Count > 0)
+    private void NextRiddle(IRiddle finishedRiddle)
+    {   
+        if(finishedRiddle == CurrentRiddle)
         {
-            CurrentRiddle = riddlesToSolve[0].GetComponent<IRiddle>();
-        }
-        else
-        {
-            EventBroadcaster.GameFinished();
+            if (riddlesToSolve.Count > 0)
+            {
+                riddlesToSolve.RemoveAt(0);
+                if (riddlesToSolve.Count > 0)
+                {
+                    CurrentRiddle = riddlesToSolve[0].GetComponent<IRiddle>();
+                    CurrentRiddle.Prepare();
+                }
+            }
+            else
+            {
+                EventBroadcaster.GameFinished();
+            }
         }
     }
 
@@ -44,7 +51,7 @@ public class RiddlesManager : MonoBehaviour
         // cheat
         if (Input.GetKeyDown(KeyCode.KeypadEnter))
         {
-            CurrentRiddle.OnPassed();
+            CurrentRiddle.Solve();
         }
     }
 }

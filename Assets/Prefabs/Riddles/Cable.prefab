@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 783726167648608299}
   - component: {fileID: 4474098051538482092}
   - component: {fileID: 6291478071511747236}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 783726169441075766}
   - component: {fileID: 783726169441075767}
   - component: {fileID: 783726169441075764}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Origin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,6 +366,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: connector (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1058452989204401370, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 3515098173917675403, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6940306452611684657, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -376,6 +386,16 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 28b76c8fd803af5459cb0eecb028e488, type: 2}
+    - target: {fileID: 8382964041697185976, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8655280147159005519, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b6f34a3ff974d140ab6010b0f1b6eeb, type: 3}
 --- !u!4 &4638725019579444291 stripped
