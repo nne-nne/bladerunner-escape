@@ -9,7 +9,7 @@ public class RiddleTutorial2 : MonoBehaviour, IRiddle
     [SerializeField] private int targetTextureIndex;
     [SerializeField] private Elevator elevator;
     [SerializeField] private PatternCamera patternCamera;
-    [SerializeField] private List<Material> materialPatterns;
+    [SerializeField] private Material patternMaterial;
     [SerializeField] private Plug p1;
     [SerializeField] private Plug p2;
     [SerializeField] private Plug destination;
@@ -18,7 +18,7 @@ public class RiddleTutorial2 : MonoBehaviour, IRiddle
     
     private void Awake()
     {
-
+        patternMaterial.SetInt("_IsActive", 0);
     }
 
     public void SetPatternTexture(int option)
@@ -57,6 +57,7 @@ public class RiddleTutorial2 : MonoBehaviour, IRiddle
         currentTextureIndex = 0;
         elevator2.SetTexture("_PatternTexture", patternTextures[0]);
         elevator2.SetFloat("_Overlay", 0f);
+        patternMaterial.SetInt("_IsActive", 1);
     }
 
     private void Update()
@@ -90,9 +91,9 @@ public class RiddleTutorial2 : MonoBehaviour, IRiddle
         return CheckWinCondition();
     }
 
-    public List<Material> GetMaterialPatterns()
+    public Material GetPatternMaterial()
     {
-        return materialPatterns;
+        return patternMaterial;
     }
 
     public PatternCamera GetPatternCamera()

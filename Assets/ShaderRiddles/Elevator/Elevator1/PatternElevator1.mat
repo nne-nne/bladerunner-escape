@@ -75,7 +75,7 @@ Material:
     - _DstBlend: 0
     - _EnableBlendModePreserveSpecularLighting: 1
     - _EnableFogOnTransparent: 1
-    - _KnobValue: 0
+    - _KnobValue: 0.88
     - _Metallic: 0
     - _OpaqueCullMode: 2
     - _RayTracing: 0

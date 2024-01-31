@@ -7,6 +7,6 @@ public interface IRiddle
     public void OnPassed();
     public bool IsPassed();
     public void Solve();
-    public List<Material> GetMaterialPatterns();
+    public Material GetPatternMaterial();
     public PatternCamera GetPatternCamera();
 }

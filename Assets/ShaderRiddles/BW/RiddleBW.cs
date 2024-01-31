@@ -13,7 +13,7 @@ public class RiddleBW : MonoBehaviour, IRiddle
     [SerializeField] private Knob threshold;
 
     [SerializeField] private PatternCamera patternCamera;
-    [SerializeField] private List<Material> materialPatterns;
+    [SerializeField] private Material patternMaterial;
     [SerializeField] private Material bwMaterial;
 
     [SerializeField] private GameObject depthPass;
@@ -22,9 +22,9 @@ public class RiddleBW : MonoBehaviour, IRiddle
     [SerializeField] private float tolerance = 0.15f;
 
     private bool passed = false;
-    public List<Material> GetMaterialPatterns()
+    public Material GetPatternMaterial()
     {
-        return materialPatterns;
+        return patternMaterial;
     }
 
     public PatternCamera GetPatternCamera()
@@ -61,6 +61,7 @@ public class RiddleBW : MonoBehaviour, IRiddle
         bwPass.SetActive(false);
         threshold.SetValue(0.3f);
         Shader.SetGlobalFloat("_Threshold", threshold.Value);
+        patternMaterial.SetInt("_IsActive", 1);
     }
 
     public void Solve()
@@ -84,6 +85,7 @@ public class RiddleBW : MonoBehaviour, IRiddle
     private void Awake()
     {
         Prepare();
+        patternMaterial.SetInt("_IsActive", 0);
     }
 
     private void OnConnectionMade(Plug source, Plug dest)

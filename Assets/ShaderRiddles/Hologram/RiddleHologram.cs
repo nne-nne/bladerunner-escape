@@ -14,7 +14,7 @@ public class RiddleHologram : MonoBehaviour, IRiddle
     [SerializeField] private Knob blend;
 
     [SerializeField] private PatternCamera patternCamera;
-    [SerializeField] private List<Material> materialPatterns;
+    [SerializeField] private Material patternMaterial;
     [SerializeField] private Material hologramMaterial;
 
     [SerializeField] private float targetBlendValue = 0.5f;
@@ -26,9 +26,9 @@ public class RiddleHologram : MonoBehaviour, IRiddle
     [SerializeField] private MaterialManager materialManager;
 
     private bool passed = false;
-    public List<Material> GetMaterialPatterns()
+    public Material GetPatternMaterial()
     {
-        return materialPatterns;
+        return patternMaterial;
     }
 
     public PatternCamera GetPatternCamera()
@@ -68,11 +68,14 @@ public class RiddleHologram : MonoBehaviour, IRiddle
         EventBroadcaster.PlugDisconnected(add_dest);
         EventBroadcaster.PlugDisconnected(uvOffset_dest);
         EventBroadcaster.PlugDisconnected(uvTiling_dest);
+
+        patternMaterial.SetInt("_IsActive", 1);
     }
 
     private void Awake()
     {
         Prepare();
+        patternMaterial.SetInt("_IsActive", 0);
     }
 
     private void SetKnobValue(float value)
