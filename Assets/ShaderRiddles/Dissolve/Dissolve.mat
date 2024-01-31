@@ -119,7 +119,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - _ActivatorPosition: {r: 1.7301149, g: -3.1182885, b: -1.8714118, a: 0}
+    - _ActivatorPosition: {r: 1.8672312, g: -3.1209679, b: -1.5623734, a: 0}
     - _BaseColor: {r: 0.14217694, g: 0.32473168, b: 0.4245283, a: 0}
     - _DistanceRemapIn: {r: 3, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
