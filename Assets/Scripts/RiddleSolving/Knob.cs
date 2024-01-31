@@ -8,7 +8,7 @@ public class Knob : MonoBehaviour, ITakeable
     [SerializeField] private GameObject activationMarker;
     private float previousValue = 0;
     [SerializeField] public AudioClip switchSound;
-    static AudioSource audio_source;
+    private AudioSource audio_source;
 
 
     public void Drop()
