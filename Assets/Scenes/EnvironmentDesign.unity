@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 15.979928, g: 23.215187, b: 36.3053, a: 1}
+  m_IndirectSpecularColor: {r: 16.023273, g: 23.276867, b: 36.39362, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21233,7 +21233,6 @@ GameObject:
   - component: {fileID: 541889294}
   - component: {fileID: 541889293}
   - component: {fileID: 541889296}
-  - component: {fileID: 541889297}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -21542,20 +21541,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!136 &541889297
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541889291}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.13
-  m_Height: 1.5
-  m_Direction: 1
-  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &548711608
 GameObject:
   m_ObjectHideFlags: 0
@@ -45930,8 +45915,8 @@ MonoBehaviour:
   m_Camera: {fileID: 541889295}
   m_OriginBaseGameObject: {fileID: 1109862173}
   m_CameraFloorOffsetObject: {fileID: 122691781}
-  m_RequestedTrackingOriginMode: 0
-  m_CameraYOffset: 1.7
+  m_RequestedTrackingOriginMode: 1
+  m_CameraYOffset: 0
 --- !u!4 &1109862176
 Transform:
   m_ObjectHideFlags: 0
@@ -45940,7 +45925,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109862173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.226, y: -8.405, z: 2.94}
+  m_LocalPosition: {x: -4, y: -8.5, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -45972,7 +45957,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.5
+  m_Height: 1.25
   m_Radius: 0.13
   m_SlopeLimit: 60
   m_StepOffset: 0.3
