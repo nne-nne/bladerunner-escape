@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class PlugLooseEnd : MonoBehaviour
 {
-    private Hand hand;
+    private Hand leftHand;
+    private Hand rightHand;
     private Plug plug;
+
+    private Hand GetCloserHand()
+    {
+        float leftDist= Vector3.Distance(transform.position, leftHand.transform.position);
+        float rightDist = Vector3.Distance(transform.position, rightHand.transform.position);
+        return leftDist < rightDist ? leftHand : rightHand;
+    }
 
     void Start()
     {
-        hand = FindObjectOfType<Hand>();
         plug = GetComponent<Plug>();
+        leftHand = GameObject.FindGameObjectWithTag("LeftHand").GetComponent<Hand>();
+        rightHand = GameObject.FindGameObjectWithTag("RightHand").GetComponent<Hand>();
     }
 
     public void TakePlug()
     {
-        hand.plugInHand = plug;
+        GetCloserHand().plugInHand = plug;
     }
     public void Drop()
     {
-        hand.plugInHand = null;
+        GetCloserHand().plugInHand = null;
     }
 }

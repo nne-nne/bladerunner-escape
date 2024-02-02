@@ -5,4 +5,11 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     public Plug plugInHand;
+    public Side side;
+}
+
+public enum Side
+{
+    LEFT,
+    RIGHT,
 }

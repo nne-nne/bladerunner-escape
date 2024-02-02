@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 16.023273, g: 23.276867, b: 36.39362, a: 1}
+  m_IndirectSpecularColor: {r: 15.979928, g: 23.215187, b: 36.3053, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -21551,9 +21551,9 @@ CapsuleCollider:
   m_GameObject: {fileID: 541889291}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2.66
+  m_Enabled: 0
+  m_Radius: 0.13
+  m_Height: 1.5
   m_Direction: 1
   m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!1 &548711608
@@ -44261,7 +44261,6 @@ GameObject:
   - component: {fileID: 1061562820}
   - component: {fileID: 1061562822}
   - component: {fileID: 1061562821}
-  - component: {fileID: 1061562823}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -44334,19 +44333,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061562819}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1061562823
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1061562819}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39a5f5a7f29691040b8f3536faafa703, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  plugInHand: {fileID: 0}
 --- !u!1 &1066369045
 GameObject:
   m_ObjectHideFlags: 0
@@ -45954,8 +45940,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1109862173}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.77, y: -16.509, z: 6.333}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: -4.226, y: -8.405, z: 2.94}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 122691782}
@@ -45986,13 +45972,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.26
+  m_Height: 1.5
+  m_Radius: 0.13
   m_SlopeLimit: 60
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: -1, z: 0}
+  m_Center: {x: 0, y: -0.5, z: 0}
 --- !u!114 &1109862181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60164,9 +60150,10 @@ GameObject:
   - component: {fileID: 1415915468}
   - component: {fileID: 1415915467}
   - component: {fileID: 1415915466}
+  - component: {fileID: 1415915471}
   m_Layer: 0
   m_Name: Right Controller
-  m_TagString: Untagged
+  m_TagString: RightHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -60815,6 +60802,20 @@ MonoBehaviour:
     m_Reference: {fileID: -6447266317303757838, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &1415915471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415915464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a5f5a7f29691040b8f3536faafa703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plugInHand: {fileID: 0}
+  side: 1
 --- !u!1 &1417056183
 GameObject:
   m_ObjectHideFlags: 0
@@ -64519,9 +64520,10 @@ GameObject:
   - component: {fileID: 1529366720}
   - component: {fileID: 1529366719}
   - component: {fileID: 1529366718}
+  - component: {fileID: 1529366723}
   m_Layer: 0
   m_Name: Left Controller
-  m_TagString: Untagged
+  m_TagString: LeftHand
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -65170,6 +65172,20 @@ MonoBehaviour:
     m_Reference: {fileID: -1636515391019944688, guid: c348712bda248c246b8c49b3db54643f,
       type: 3}
   m_ButtonPressPoint: 0.5
+--- !u!114 &1529366723
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1529366716}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39a5f5a7f29691040b8f3536faafa703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plugInHand: {fileID: 0}
+  side: 0
 --- !u!1 &1531040517 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4564771750712130808, guid: 244b13f704e70b34985a0259069d5a16,
