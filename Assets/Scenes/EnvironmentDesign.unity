@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 16.023273, g: 23.276867, b: 36.39362, a: 1}
+  m_IndirectSpecularColor: {r: 15.979928, g: 23.215187, b: 36.3053, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8754,6 +8754,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3987057554918656127, guid: 6e9dc1ebcf3f93a428827ed6f4b8aae1,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 647809488}
     - target: {fileID: 4262903905412701938, guid: 6e9dc1ebcf3f93a428827ed6f4b8aae1,
         type: 3}
       propertyPath: m_Name
@@ -15024,6 +15029,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3987057554918656127, guid: 6e9dc1ebcf3f93a428827ed6f4b8aae1,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 647809488}
     - target: {fileID: 4262903905412701938, guid: 6e9dc1ebcf3f93a428827ed6f4b8aae1,
         type: 3}
       propertyPath: m_Name
@@ -25119,6 +25129,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3987057554918656127, guid: 6e9dc1ebcf3f93a428827ed6f4b8aae1,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 647809488}
     - target: {fileID: 4262903905412701938, guid: 6e9dc1ebcf3f93a428827ed6f4b8aae1,
         type: 3}
       propertyPath: m_Name
@@ -27277,6 +27292,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3987057554918656127, guid: 6e9dc1ebcf3f93a428827ed6f4b8aae1,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 647809488}
     - target: {fileID: 4262903905412701938, guid: 6e9dc1ebcf3f93a428827ed6f4b8aae1,
         type: 3}
       propertyPath: m_Name
@@ -58163,6 +58183,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3987057554918656127, guid: 6e9dc1ebcf3f93a428827ed6f4b8aae1,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 647809488}
     - target: {fileID: 4262903905412701938, guid: 6e9dc1ebcf3f93a428827ed6f4b8aae1,
         type: 3}
       propertyPath: m_Name
@@ -85335,6 +85360,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2293753490452839732, guid: 7e8943d54849fde45905ad3261ce001a,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 647809488}
     - target: {fileID: 2918846155586939539, guid: 7e8943d54849fde45905ad3261ce001a,
         type: 3}
       propertyPath: m_Layer
@@ -85946,6 +85976,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3987057554918656127, guid: 6e9dc1ebcf3f93a428827ed6f4b8aae1,
+        type: 3}
+      propertyPath: m_InteractionManager
+      value: 
+      objectReference: {fileID: 647809488}
     - target: {fileID: 4262903905412701938, guid: 6e9dc1ebcf3f93a428827ed6f4b8aae1,
         type: 3}
       propertyPath: m_Name
