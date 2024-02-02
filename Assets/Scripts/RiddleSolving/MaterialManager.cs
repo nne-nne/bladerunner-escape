@@ -41,7 +41,6 @@ public class MaterialManager : MonoBehaviour
         {
             if (o.patternOnly)
             {
-                Debug.Log("set pattern material");
                 o.SetMaterial(cellPatternMaterials[o.colorIndex]);
             }
         }

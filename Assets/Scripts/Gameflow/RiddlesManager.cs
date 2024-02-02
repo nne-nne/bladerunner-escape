@@ -7,13 +7,16 @@ public class RiddlesManager : MonoBehaviour
     [SerializeField] private List<GameObject> riddlesToSolve;
     public IRiddle CurrentRiddle { get; private set; }
 
+    private Tablet tablet;
+
     private bool CheckWinCondition()
     {
         return CurrentRiddle.IsPassed();
     }
 
     private void NextRiddle(IRiddle finishedRiddle)
-    {   
+    {
+        Debug.Log($"finished {finishedRiddle.GetType()}");
         if(finishedRiddle == CurrentRiddle)
         {
             if (riddlesToSolve.Count > 0)
@@ -23,6 +26,11 @@ public class RiddlesManager : MonoBehaviour
                 {
                     CurrentRiddle = riddlesToSolve[0].GetComponent<IRiddle>();
                     CurrentRiddle.Prepare();
+                    tablet.SetPatternMaterial(CurrentRiddle.GetPatternMaterial());
+                }
+                else
+                {
+                    EventBroadcaster.GameFinished();
                 }
             }
             else
@@ -44,6 +52,9 @@ public class RiddlesManager : MonoBehaviour
     private void Awake()
     {
         CurrentRiddle = riddlesToSolve[0].GetComponent<IRiddle>();
+        CurrentRiddle.Prepare();
+        tablet = FindObjectOfType<Tablet>();
+        tablet.SetPatternMaterial(CurrentRiddle.GetPatternMaterial());
     }
 
     private void Update()

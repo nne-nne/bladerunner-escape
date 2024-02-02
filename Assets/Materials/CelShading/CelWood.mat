@@ -154,7 +154,7 @@ Material:
     - _DisplacementLockTilingScale: 1
     - _DisplacementMode: 0
     - _DotsScale: 51.11
-    - _DottedTexture: 1
+    - _DottedTexture: 0
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
@@ -258,7 +258,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     - _shadowThreshold: 0.5
-    - _specularThreshold: 0.15
+    - _specularThreshold: 0.05
     m_Colors:
     - _BaseColor: {r: 0.6320754, g: 0.6190314, b: 0.5694642, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}

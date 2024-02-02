@@ -34,13 +34,13 @@ public class RiddleBW : MonoBehaviour, IRiddle
 
     public bool IsPassed()
     {
-        if((xy_source.connectedPlug != compare0_dest && x2y2_source.connectedPlug != compare1_dest)
-            || xy_source.connectedPlug != compare1_dest && x2y2_source.connectedPlug != compare0_dest)
+        if(!((xy_source.connectedPlug == compare0_dest && x2y2_source.connectedPlug == compare1_dest)
+            || xy_source.connectedPlug == compare1_dest && x2y2_source.connectedPlug == compare0_dest))
         {
             return false;
         }
         if (compare_source.connectedPlug != fullScreenPass_dest) return false;
-        if (Mathf.Abs(threshold.Value - targetThreshold) > tolerance) return false;
+        //if (Mathf.Abs(threshold.Value - targetThreshold) > tolerance) return false;
         return true;
     }
 
@@ -59,8 +59,8 @@ public class RiddleBW : MonoBehaviour, IRiddle
     {
         depthPass.SetActive(false);
         bwPass.SetActive(false);
-        threshold.SetValue(0.3f);
-        Shader.SetGlobalFloat("_Threshold", threshold.Value);
+        //threshold.SetValue(0.3f);
+        //Shader.SetGlobalFloat("_Threshold", threshold.Value);
         patternMaterial.SetInt("_IsActive", 1);
     }
 

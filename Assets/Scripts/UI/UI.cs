@@ -28,6 +28,7 @@ public class UI : MonoBehaviour
 
     private void OnFinishGame()
     {
+        Debug.Log("on finished game");
         Time.timeScale = 0f;
         finishPanel.SetActive(true);
     }
